@@ -4,15 +4,11 @@ import com.lewns2.backend.global.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "members")
 public class Member extends BaseEntity {
-
-    @Id
-    private Long id;
 
     @Column
     private String email;

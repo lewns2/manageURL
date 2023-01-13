@@ -23,6 +23,6 @@ public class MemberSignUpTest {
         memberService.doSignUp(member);
 
         // then
-        Assertions.assertThat(memberRepository.findMember(1L)).isEqualTo(member);
+        Assertions.assertThat(memberRepository.findMemberById(1L)).isEqualTo(member);
     }
 }
