@@ -3,7 +3,7 @@ package com.lewns2.backend.domain.member;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class MemoryMemberRepository implements MemberRepository{
+public class MemoryMemberRepositoryImpl implements MemberRepository{
 
     // 임시 저장소
     private static Map<Long, Member> store = new ConcurrentHashMap<>();

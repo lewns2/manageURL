@@ -2,7 +2,9 @@ package com.lewns2.backend.domain.member;
 
 import org.springframework.stereotype.Service;
 
-@Service
+import javax.transaction.Transactional;
+
+
 public class MemberServiceImpl implements MemberService{
 
     // 의존성 낮추기 : memberRepository가 어떤 구현체인지 여기서 선택하면 안된다.
