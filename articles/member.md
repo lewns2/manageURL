@@ -40,7 +40,25 @@ extends는 일반 클래스와 추상 클래스 상속에 사용되고, implemen
 고민
 
 - 의존성을 낮춘다. 서비스에서 리포지터리 구현체가 아닌 인터페이스에만 접근하는 법?
-- 스프링 빈 등록 방법 : @Bean vs @Component?
-- BaseEntitiy를 상속받은 회원을 테스트하는 방법?
+- 스프링 빈 등록 방법 : @Bean vs @Component + @Autowired?
+
+문제 상황 01.
+기존 임시 저장소(MemoryMemberRepository)에서 Jpa 저장소(JpaMemberRepository)로 변경
+
+에러 : 테스트 시, 리포지터리 빈 생성 에러 발생
+
+> Error creating bean with name 'memberRepository': Injection of persistence dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'javax.persistence.EntityManagerFactory' available
+
+```java
+@PersistenceContext
+private Entitiymanager em;
+```
+
+애노테이션을 통한 엔티티매니저 빈 주입 실패 -> null 값
+
+예상 문제점
+
+1. 엔티티 매니저 사용을 위한 `main/resources/META_INF/persistence.xml` 미작성
+2. Confiuration을 통한 수동 주입과 자동 주입(엔티티, 서비스, 리포지터리 애노테이션 등)의 혼용
 
 ### 레퍼런스 코드 분석
