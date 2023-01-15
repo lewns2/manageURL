@@ -1,13 +1,14 @@
 package com.lewns2.backend.domain.member;
 
-import com.lewns2.backend.global.MemberConfig;
+import com.lewns2.backend.config.MemberConfig;
+import com.lewns2.backend.model.Member;
+import com.lewns2.backend.model.Role;
+import com.lewns2.backend.repository.MemberRepository;
+import com.lewns2.backend.service.MemberService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 
 public class MemberSignUpTest {
 
@@ -16,7 +17,6 @@ public class MemberSignUpTest {
 
     MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
     MemberRepository memberRepository = applicationContext.getBean("memberRepository", MemberRepository.class);
-
 
     @Test
     public void 회원객체_테스트() {
@@ -27,8 +27,8 @@ public class MemberSignUpTest {
         memberService.doSignUp(member);
 
         // then
-//        System.out.println(memberRepository.findMemberById(1L));
-//        Assertions.assertThat(memberRepository.findMemberById(1L)).isEqualTo(member);
+        System.out.println(memberRepository.findMemberById(1L));
+        Assertions.assertThat(memberRepository.findMemberById(1L)).isEqualTo(member);
     }
 
 

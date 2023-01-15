@@ -1,4 +1,4 @@
-package com.lewns2.backend.global;
+package com.lewns2.backend.model;
 
 /*
 * 도메인에서 사용할 유틸리티를 나타냅니다.

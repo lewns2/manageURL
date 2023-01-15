@@ -1,6 +1,4 @@
-package com.lewns2.backend.domain.member;
-
-import com.lewns2.backend.global.BaseEntity;
+package com.lewns2.backend.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

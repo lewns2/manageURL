@@ -1,4 +1,6 @@
-package com.lewns2.backend.domain.member;
+package com.lewns2.backend.repository;
+
+import com.lewns2.backend.model.Member;
 
 public interface MemberRepository{
 

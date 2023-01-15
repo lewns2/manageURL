@@ -1,12 +1,16 @@
-package com.lewns2.backend.domain.member;
+package com.lewns2.backend.repository.jpa;
+
+import com.lewns2.backend.model.Member;
+import com.lewns2.backend.repository.MemberRepository;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+@Repository
+public class JpaMemberRepositoryImpl implements MemberRepository {
 
-public class JpaMemberRepositoryImpl implements MemberRepository{
-
-//    @PersistenceContext
+    @PersistenceContext
     private EntityManager em;
 
     @Override
