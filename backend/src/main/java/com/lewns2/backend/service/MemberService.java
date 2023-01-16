@@ -7,4 +7,6 @@ public interface MemberService {
 
     void doSignUp(Member member);
 
+    Member findMember(Long memberId);
+
 }

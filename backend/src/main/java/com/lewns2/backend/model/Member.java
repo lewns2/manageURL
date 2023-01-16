@@ -17,8 +17,11 @@ public class Member extends BaseEntity {
     @Column
     private Role role;
 
+    // Jpa를 위한 기본 생성자 : 롬복의 @NoArgsConstructor 역할
+    public Member() {}
+
     // 생성자
-    public Member(Long id, String email, String password, Role role) {
+    public Member(String email, String password, Role role) {
         this.id = id;
         this.email = email;
         this.password = password;

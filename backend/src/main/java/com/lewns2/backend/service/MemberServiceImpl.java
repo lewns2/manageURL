@@ -4,6 +4,8 @@ import com.lewns2.backend.model.Member;
 import com.lewns2.backend.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 public class MemberServiceImpl implements MemberService {
 
@@ -16,7 +18,15 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    @Transactional
     public void doSignUp(Member member) {
         memberRepository.save(member);
     }
+
+    @Override
+    public Member findMember(Long memberId) {
+        return memberRepository.findMemberById(memberId);
+    }
+
+
 }
