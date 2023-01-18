@@ -3,6 +3,7 @@ package com.lewns2.backend.repository.memory;
 import com.lewns2.backend.model.Board;
 import com.lewns2.backend.repository.BoardRepository;
 
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -14,5 +15,10 @@ public class MemoryBoardRepositoryImpl implements BoardRepository {
     @Override
     public void save(Board board) {
         store.put(board.getId(), board);
+    }
+
+    @Override
+    public List<Board> findByMemberId(Long memberId) {
+        return null;
     }
 }

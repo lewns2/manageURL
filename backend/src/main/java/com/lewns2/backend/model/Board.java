@@ -1,5 +1,6 @@
 package com.lewns2.backend.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -28,6 +29,8 @@ public class Board extends BaseEntity {
 
 
     // 생성자
+    public Board() {};
+
     public Board(Member member, String title, String description, LocalDate createdDate, LocalDate updateDate) {
         this.member = member;
         this.title = title;

@@ -5,6 +5,7 @@ import com.lewns2.backend.repository.BoardRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Collection;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -19,5 +20,11 @@ public class BoardServiceImpl implements BoardService{
     @Transactional
     public void doSaveArticle(Board board) {
         boardRepository.save(board);
+    }
+
+    @Override
+    @Transactional
+    public Collection<Board> findBoardByMemberId(Long memberId) {
+        return boardRepository.findByMemberId(memberId);
     }
 }

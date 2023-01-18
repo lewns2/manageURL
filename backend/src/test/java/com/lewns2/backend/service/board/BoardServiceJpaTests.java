@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
+import java.util.Collection;
 
 @SpringBootTest
 public class BoardServiceJpaTests {
@@ -43,8 +44,14 @@ public class BoardServiceJpaTests {
         boardService.doSaveArticle(board);
 
         // then
+    }
 
-
+    @Test
+    void shouldFindBoardByMemberId() throws Exception {
+        Collection<Board> boards = this.boardService.findBoardByMemberId(15L);
+        Assertions.assertThat(boards.size()).isEqualTo(1);
+        Board[] boardArr = boards.toArray(new Board[boards.size()]);
+        Assertions.assertThat(boardArr[0].getMember()).isNotNull();
     }
 
 }
