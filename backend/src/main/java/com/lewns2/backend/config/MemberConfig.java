@@ -2,7 +2,6 @@ package com.lewns2.backend.config;
 
 import com.lewns2.backend.repository.MemberRepository;
 import com.lewns2.backend.repository.jpa.JpaMemberRepositoryImpl;
-import com.lewns2.backend.repository.memory.MemoryMemberRepositoryImpl;
 import com.lewns2.backend.service.MemberService;
 import com.lewns2.backend.service.MemberServiceImpl;
 import org.springframework.context.annotation.Bean;
