@@ -54,4 +54,17 @@ public class BoardServiceJpaTests {
         Assertions.assertThat(boardArr[0].getMember()).isNotNull();
     }
 
+    @Test
+    void shouldDeleteBoard() throws Exception {
+        Board boardA = boardRepository.findById(4L);
+        boardService.deleteArticle(boardA);
+        try {
+            boardA = boardService.findBoardById(4L);
+        } catch (Exception e) {
+            boardA = null;
+        }
+        Assertions.assertThat(boardA).isNull();
+
+    }
+
 }

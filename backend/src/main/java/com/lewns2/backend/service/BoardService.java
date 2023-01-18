@@ -8,6 +8,10 @@ public interface BoardService {
 
     void doSaveArticle(Board board);
 
+    Board findBoardById(Long boardId);
+
     Collection<Board> findBoardByMemberId(Long memberId);
+
+    void deleteArticle(Board board);
 
 }

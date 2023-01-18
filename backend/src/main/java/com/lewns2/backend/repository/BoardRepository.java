@@ -8,5 +8,9 @@ public interface BoardRepository {
 
     void save(Board board);
 
+    Board findById(Long boardId);
+
     List<Board> findByMemberId(Long memberId);
+
+    void delete(Board board);
 }

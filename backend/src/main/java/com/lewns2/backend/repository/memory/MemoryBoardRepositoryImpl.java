@@ -18,7 +18,17 @@ public class MemoryBoardRepositoryImpl implements BoardRepository {
     }
 
     @Override
+    public Board findById(Long boardId) {
+        return null;
+    }
+
+    @Override
     public List<Board> findByMemberId(Long memberId) {
         return null;
+    }
+
+    @Override
+    public void delete(Board board) {
+
     }
 }

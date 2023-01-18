@@ -23,8 +23,19 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
+    public Board findBoardById(Long boardId) {
+        return boardRepository.findById(boardId);
+    }
+
+    @Override
     @Transactional
     public Collection<Board> findBoardByMemberId(Long memberId) {
         return boardRepository.findByMemberId(memberId);
+    }
+
+    @Override
+    @Transactional
+    public void deleteArticle(Board board) {
+        boardRepository.delete(board);
     }
 }

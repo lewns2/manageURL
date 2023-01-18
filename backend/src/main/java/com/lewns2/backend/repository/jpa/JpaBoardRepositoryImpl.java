@@ -21,9 +21,23 @@ public class JpaBoardRepositoryImpl implements BoardRepository {
     }
 
     @Override
+    public Board findById(Long boardId) {
+        return this.em.find(Board.class, boardId);
+    }
+
+    @Override
     public List<Board> findByMemberId(Long memberId) {
         Query query = this.em.createQuery("SELECT b FROM Board b where b.member.id= :id");
         query.setParameter("id", memberId);
         return query.getResultList();
+    }
+
+    @Override
+    public void delete(Board board) {
+        String boardId = board.getId().toString();
+        this.em.createQuery("DELETE FROM Board board WHERE id=" + boardId).executeUpdate();
+        if(em.contains(board)) {
+            em.remove(board);
+        }
     }
 }
