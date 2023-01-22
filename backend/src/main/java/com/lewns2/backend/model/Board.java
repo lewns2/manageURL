@@ -15,10 +15,10 @@ public class Board extends BaseEntity {
     @ManyToOne
     private Member member;
 
-    @Column
+    @Column(name = "title")
     private String title;
 
-    @Column
+    @Column(name = "description")
     private String description;
 
     @CreatedDate

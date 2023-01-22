@@ -1,20 +1,18 @@
 package com.lewns2.backend.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "members")
 public class Member extends BaseEntity {
 
-    @Column
+    @Column(name = "email")
     private String email;
 
-    @Column
+    @Column(name = "password")
     private String password;
 
-    @Column
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     // Jpa를 위한 기본 생성자 : 롬복의 @NoArgsConstructor 역할
