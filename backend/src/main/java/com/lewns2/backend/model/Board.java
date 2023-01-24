@@ -6,11 +6,12 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.*;
 
 
 @Entity
 @Table(name = "board")
-public class Board extends BaseEntity {
+public class Board extends DateEntity {
 
     @ManyToOne
     private Member member;
@@ -21,24 +22,15 @@ public class Board extends BaseEntity {
     @Column(name = "description")
     private String description;
 
-    @CreatedDate
-    private LocalDate createdDate;
-
-    @LastModifiedDate
-    private LocalDate updateDate;
-
+    @OneToMany
+    private Set<Url> urls;
 
     // 생성자
-    public Board() {};
-
-    public Board(Member member, String title, String description, LocalDate createdDate, LocalDate updateDate) {
+    public Board(Member member, String title, String description) {
         this.member = member;
         this.title = title;
         this.description = description;
-        this.createdDate = createdDate;
-        this.updateDate = updateDate;
     }
-
 
     // getter and setter
     public Member getMember() {
@@ -65,19 +57,28 @@ public class Board extends BaseEntity {
         this.description = description;
     }
 
-    public LocalDate getCreatedDate() {
-        return createdDate;
+    // urls 추가
+    protected Set<Url> getUrlsInternal() {
+        if (this.urls == null) {
+            this.urls = new HashSet<>();
+        }
+        return this.urls;
     }
 
-    public void setCreatedDate(LocalDate createdDate) {
-        this.createdDate = createdDate;
+    public List<Url> getUrls() {
+        List<Url> sortedUrls = new ArrayList<>(getUrlsInternal());
+        return Collections.unmodifiableList(sortedUrls);
     }
 
-    public LocalDate getUpdateDate() {
-        return updateDate;
+    protected void setUrlsInternal() {
+        this.urls = urls;
     }
 
-    public void setUpdateDate(LocalDate updateDate) {
-        this.updateDate = updateDate;
+    public void setUrls(List<Url> urls) {
+        this.urls = new HashSet<>(urls);
     }
+
+
+
+
 }
