@@ -50,11 +50,6 @@ public class BoardServiceJpaTests {
     }
 
     @Test
-    void 게시글저장_URL포함_테스트() throws Exception {
-        //
-    }
-
-    @Test
     void shouldFindBoardByMemberId() throws Exception {
         Collection<Board> boards = this.boardService.findBoardByMemberId(15L);
         Assertions.assertThat(boards.size()).isEqualTo(1);

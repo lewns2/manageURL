@@ -23,6 +23,7 @@ public class Board extends DateEntity {
     private String description;
 
     @OneToMany
+    @JoinColumn
     private Set<Url> urls;
 
     // 생성자
@@ -77,8 +78,4 @@ public class Board extends DateEntity {
     public void setUrls(List<Url> urls) {
         this.urls = new HashSet<>(urls);
     }
-
-
-
-
 }
