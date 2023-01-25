@@ -73,6 +73,12 @@ public void delete(Board board) {
 
 에러 1. if문 없이 바로 em.remove(board) 시, `java.lang.IllegalArgumentException: Removing a detached instance` 발생 <br>
 
+- 영속성 컨텍스트에 대한 학습 (영속성 컨텍스트에 없는 경우(분리된 경우), 에러가 발생한 것)
+- em.remove()의 동작 과정
+  - 삭제 대상 엔티티를 넘겨주면 엔티티를 삭제한다.
+  - 엔티티를 즉시 삭제하지는 않는다.
+  - 쓰기 지연 SQL 저장소에 등록된 뒤, 트랜잭셩을 커밋하여 플러시를 호출할 때 실제 삭제 쿼리가 전달된다.
+
 에러 2. excuteUpdate() 미작성 시, 글이 삭제되지 않음. <br>
 
 ### 게시글 Id를 통한 해당 게시글 조회
