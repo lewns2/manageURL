@@ -22,8 +22,7 @@ public class Board extends DateEntity {
     @Column(name = "description")
     private String description;
 
-    @OneToMany
-    @JoinColumn
+    @OneToMany(mappedBy = "board")
     private Set<Url> urls;
 
     // 생성자
