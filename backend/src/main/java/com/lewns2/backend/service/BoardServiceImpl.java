@@ -1,6 +1,7 @@
 package com.lewns2.backend.service;
 
 import com.lewns2.backend.model.Board;
+import com.lewns2.backend.model.Url;
 import com.lewns2.backend.repository.BoardRepository;
 import org.springframework.stereotype.Service;
 

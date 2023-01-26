@@ -25,6 +25,9 @@ public class Board extends DateEntity {
     @OneToMany(mappedBy = "board")
     private Set<Url> urls;
 
+    // JPA를 위한 기본 생성자
+    public Board() {};
+
     // 생성자
     public Board(Member member, String title, String description) {
         this.member = member;
@@ -58,23 +61,23 @@ public class Board extends DateEntity {
     }
 
     // urls 추가
-    protected Set<Url> getUrlsInternal() {
-        if (this.urls == null) {
-            this.urls = new HashSet<>();
-        }
-        return this.urls;
-    }
-
-    public List<Url> getUrls() {
-        List<Url> sortedUrls = new ArrayList<>(getUrlsInternal());
-        return Collections.unmodifiableList(sortedUrls);
-    }
-
-    protected void setUrlsInternal() {
-        this.urls = urls;
-    }
-
-    public void setUrls(List<Url> urls) {
-        this.urls = new HashSet<>(urls);
-    }
+//    protected List<Url> getUrlsInternal() {
+//        if (this.urls == null) {
+//            this.urls = new HashSet<>();
+//        }
+//        return this.urls;
+//    }
+//
+//    public List<Url> getUrls() {
+//        List<Url> sortedUrls = new ArrayList<>(getUrlsInternal());
+//        return Collections.unmodifiableList(sortedUrls);
+//    }
+//
+//    protected void setUrlsInternal() {
+//        this.urls = urls;
+//    }
+//
+//    public void setUrls(List<Url> urls) {
+//        this.urls = new HashSet<>(urls);
+//    }
 }

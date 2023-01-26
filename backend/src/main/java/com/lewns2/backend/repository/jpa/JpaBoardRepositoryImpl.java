@@ -1,6 +1,7 @@
 package com.lewns2.backend.repository.jpa;
 
 import com.lewns2.backend.model.Board;
+import com.lewns2.backend.model.Url;
 import com.lewns2.backend.repository.BoardRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public class JpaBoardRepositoryImpl implements BoardRepository {
@@ -36,8 +38,5 @@ public class JpaBoardRepositoryImpl implements BoardRepository {
     public void delete(Board board) {
         String boardId = board.getId().toString();
         this.em.createQuery("DELETE FROM Board board WHERE id=" + boardId).executeUpdate();
-        if(em.contains(board)) {
-            em.remove(board);
-        }
     }
 }

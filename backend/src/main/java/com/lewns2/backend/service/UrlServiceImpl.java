@@ -1,5 +1,6 @@
 package com.lewns2.backend.service;
 
+import com.lewns2.backend.model.Board;
 import com.lewns2.backend.model.Url;
 import com.lewns2.backend.repository.UrlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,11 @@ public class UrlServiceImpl implements UrlService{
         for(Url url : urls) {
             urlRepository.save(url);
         }
+    }
+
+    @Override
+    @Transactional
+    public Collection<Url> findUrls(Board board) {
+        return urlRepository.findUrls(board);
     }
 }
