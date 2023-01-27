@@ -31,4 +31,10 @@ public class JpaUrlRepositoryImpl implements UrlRepository {
         query.setParameter("id", boardId);
         return query.getResultList();
     }
+
+    @Override
+    public void delete(Url url) {
+        String urlId = url.getId().toString();
+        this.em.createQuery("DELETE FROM Url url WHERE id= " + urlId).executeUpdate();
+    }
 }

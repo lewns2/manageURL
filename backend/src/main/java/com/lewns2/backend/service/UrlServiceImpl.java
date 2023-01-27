@@ -34,4 +34,10 @@ public class UrlServiceImpl implements UrlService{
     public Collection<Url> findUrls(Board board) {
         return urlRepository.findUrls(board);
     }
+
+    @Override
+    @Transactional
+    public void deleteUrl(Url url) {
+        urlRepository.delete(url);
+    }
 }

@@ -86,6 +86,36 @@ public class UrlServiceJpaTests {
 
         // then
         Assertions.assertThat(findUrls.size()).isEqualTo(2);
+    }
 
+    @Test
+    @Transactional
+    void URL_삭제_테스트() {
+        // given
+        Member memberA = new Member("url@test.com", "1234", Role.USER);
+        memberService.doSignUp(memberA);
+
+        Board boardA = new Board(memberA, "url-test", "url-description");
+        boardService.doSaveArticle(boardA);
+
+        List<Url> urls = new ArrayList<>();
+        Url urlA = new Url(boardA, "www.url.com", "공부");
+        Url urlB = new Url(boardA, "www.asd.com", "참고글");
+        urls.add(urlA);
+        urls.add(urlB);
+        urlService.doSaveUrls(urls);
+
+        // when
+        Collection<Url> prevResUrls = urlService.findUrls(boardA);
+        Assertions.assertThat(prevResUrls.size()).isEqualTo(2);
+
+        urlService.deleteUrl(urlA);
+        Collection<Url> resUrls = urlService.findUrls(boardA);
+        Url[] urlArr = resUrls.toArray(new Url[resUrls.size()]);
+
+        // then
+        Assertions.assertThat(resUrls.size()).isEqualTo(1);
+        Assertions.assertThat(urlArr[0].getAddress()).isEqualTo("www.asd.com");
+        Assertions.assertThat(urlArr[0].getCategory()).isEqualTo("참고글");
     }
 }

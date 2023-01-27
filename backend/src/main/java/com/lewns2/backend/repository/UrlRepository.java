@@ -11,4 +11,6 @@ public interface UrlRepository {
     void save(Url url);
 
     List<Url> findUrls(Board board);
+
+    void delete(Url url);
 }
