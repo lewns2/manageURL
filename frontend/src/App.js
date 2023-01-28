@@ -1,7 +1,12 @@
 import './App.css';
+import RouteHandler from './route/RouteHandler';
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <RouteHandler />
+    </div>
+  );
 }
 
 export default App;
