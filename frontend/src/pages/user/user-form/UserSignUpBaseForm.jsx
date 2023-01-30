@@ -5,8 +5,6 @@ const UserSignUpBaseForm = () => {
     <>
       <form>
         <UserEmail />
-        <UserEmail />
-        <UserPassword />
         <UserPassword />
         <button>회원가입</button>
       </form>
