@@ -1,6 +1,3 @@
-// import UserEmail from './parts/user-email/UserEmail';
-// import UserPassword from './parts/user-password/UserPassword';
-
 import { UserEmail, UserPassword } from './parts';
 
 const UserLoginBaseForm = () => {
