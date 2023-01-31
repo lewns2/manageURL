@@ -1,5 +1,7 @@
 package com.lewns2.backend.model;
 
+import lombok.Builder;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,10 +17,12 @@ public class Member extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+
     // Jpa를 위한 기본 생성자 : 롬복의 @NoArgsConstructor 역할
     public Member() {}
 
     // 생성자
+    @Builder // 빌더 패턴을 위함.
     public Member(String email, String password, Role role) {
         this.id = id;
         this.email = email;

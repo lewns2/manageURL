@@ -19,8 +19,9 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     @Transactional
-    public void doSignUp(Member member) {
+    public Long doSignUp(Member member) {
         memberRepository.save(member);
+        return member.getId();
     }
 
     @Override
