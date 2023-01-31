@@ -1,14 +1,9 @@
 package com.lewns2.backend.rest.controller;
 
-import com.lewns2.backend.mapper.MemberMapper;
 import com.lewns2.backend.model.Member;
-import com.lewns2.backend.rest.dto.MemberDto;
+import com.lewns2.backend.rest.dto.member.MemberResponse;
+import com.lewns2.backend.rest.dto.member.SignUpRequest;
 import com.lewns2.backend.service.MemberService;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,27 +13,29 @@ import org.springframework.web.bind.annotation.RestController;
 public class MemberRestController {
 
     private final MemberService memberService;
-    private final MemberMapper memberMapper;
 
     // 생성자
-    public MemberRestController(MemberService memberService, MemberMapper memberMapper) {
+    public MemberRestController(MemberService memberService) {
         this.memberService = memberService;
-        this.memberMapper = memberMapper;
     }
 
     // 회원 등록
-    @PostMapping("/members")
-    public ResponseEntity<MemberDto> saveMember(@RequestBody MemberDto memberDto) {
+    @PostMapping("api/v1/members")
+    public MemberResponse addMember(@RequestBody SignUpRequest signUpRequest) {
         /* 1. 요청 memberDto를 member 엔티티로 변환
         // 2. 서비스 호출 : 등록
         // 3, dto를 반환 */
-        HttpHeaders headers = new HttpHeaders();
-
-        Member member = memberMapper.toMember(memberDto);
-        memberService.doSignUp(member);
-
-        return new ResponseEntity<>(memberMapper.toMemberDto(member), headers, HttpStatus.CREATED);
 
 
+        // 1. 빌더 패턴 사용해보기
+        Member member = signUpRequest.toEntity();
+
+        /* 2. 생성자로 만드는 방법
+        Member member = new Member();
+        member.setEmail(signUpRequest.getEmail());
+        member.setPassword(signUpRequest.getPassword()); */
+
+        Long id = memberService.doSignUp(member);
+        return MemberResponse.from(id); // 3. 정적 팩토리 메서드 패턴
     }
 }

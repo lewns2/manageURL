@@ -5,7 +5,7 @@ import com.lewns2.backend.model.Member;
 
 public interface MemberService {
 
-    void doSignUp(Member member);
+    Long doSignUp(Member member);
 
     Member findMember(Long memberId);
 
