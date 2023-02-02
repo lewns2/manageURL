@@ -22,7 +22,7 @@ const UserEmail = () => {
       </label>
       <span>@</span>
 
-      <input value={domain || ''} onChange={(e) => onChangeDomain(e, setDomain)}></input>
+      <input value={domain} onChange={(e) => onChangeDomain(e, setDomain)}></input>
 
       <SelectBox setDomain={setDomain}></SelectBox>
     </div>
