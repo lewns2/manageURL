@@ -1,4 +1,4 @@
-import UserEmail from './user-email/UserEmail';
-import UserPassword from './user-password/UserPassword';
+/* part 폴더 */
 
-export { UserEmail, UserPassword };
+export * from './user-email';
+export * from './user-password';

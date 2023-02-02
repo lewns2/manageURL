@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router';
 
-import UserSignUpBaseForm from '../user/user-form/UserSignUpBaseForm';
+import UserSignUpBaseForm from './user-form/UserSignUpBaseForm';
 
 const SignUp = () => {
   const navigate = useNavigate();
