@@ -1,5 +1,6 @@
 package com.lewns2.backend.model;
 
+import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -29,6 +30,7 @@ public class Board extends DateEntity {
     public Board() {};
 
     // 생성자
+    @Builder
     public Board(Member member, String title, String description) {
         this.member = member;
         this.title = title;

@@ -4,6 +4,7 @@ import com.lewns2.backend.model.Member;
 import com.lewns2.backend.rest.dto.member.MemberResponse;
 import com.lewns2.backend.rest.dto.member.SignUpRequest;
 import com.lewns2.backend.service.MemberService;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +21,7 @@ public class MemberRestController {
     }
 
     // 회원 등록
-    @PostMapping("api/v1/members")
+    @PostMapping("/signup")
     public MemberResponse addMember(@RequestBody SignUpRequest signUpRequest) {
         /* 1. 요청 memberDto를 member 엔티티로 변환
         // 2. 서비스 호출 : 등록

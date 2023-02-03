@@ -19,8 +19,9 @@ public class BoardServiceImpl implements BoardService{
 
     @Override
     @Transactional
-    public void doSaveArticle(Board board) {
+    public Long doSaveArticle(Board board) {
         boardRepository.save(board);
+        return board.getId();
     }
 
     @Override
