@@ -7,7 +7,7 @@ import java.util.Collection;
 
 public interface BoardService {
 
-    void doSaveArticle(Board board);
+    Long doSaveArticle(Board board);
 
     Board findBoardById(Long boardId);
 
