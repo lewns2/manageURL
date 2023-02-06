@@ -8,6 +8,9 @@ import javax.persistence.*;
 @Table(name = "members")
 public class Member extends BaseEntity {
 
+    @Column(name = "nickname")
+    private String nickname;
+
     @Column(name = "email")
     private String email;
 
@@ -23,8 +26,9 @@ public class Member extends BaseEntity {
 
     // 생성자
     @Builder // 빌더 패턴을 위함.
-    public Member(String email, String password, Role role) {
+    public Member(String nickname, String email, String password, Role role) {
         this.id = id;
+        this.nickname = nickname;
         this.email = email;
         this.password = password;
         this.role = role;
@@ -61,5 +65,13 @@ public class Member extends BaseEntity {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public String getNickName() {
+        return nickname;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickname = nickName;
     }
 }

@@ -46,7 +46,7 @@ public class MemberServiceJpaTests {
     @Transactional
     public void 회원등록_테스트() throws Exception {
         // given
-        Member memberA = new Member("test1@gmail.com", "test1", Role.USER);
+        Member memberA = new Member("dh", "test1@gmail.com", "test1", Role.USER);
 
         // when
         memberService.doSignUp(memberA);
@@ -61,11 +61,18 @@ public class MemberServiceJpaTests {
 
         // 문제) 기본키 값은 초기화되지 않아 계속 올라간다.
         Member findMemberA = memberService.findMember(1L);
+        Member findMemberB = memberService.findMemberByNickName("dh");
+        System.out.println(findMemberA);
+        System.out.println(findMemberB);
 
         // then
         Assertions.assertThat(findMemberA.getEmail()).isEqualTo(memberA.getEmail());
         Assertions.assertThat(findMemberA.getPassword()).isEqualTo(memberA.getPassword());
         Assertions.assertThat(findMemberA.getRole()).isEqualTo(memberA.getRole());
+
+        Assertions.assertThat(findMemberB.getEmail()).isEqualTo(memberA.getEmail());
+        Assertions.assertThat(findMemberB.getPassword()).isEqualTo(memberA.getPassword());
+        Assertions.assertThat(findMemberB.getRole()).isEqualTo(memberA.getRole());
 
 
         // 회원을 찾을 때마다 매번 Member@xxxx, xxx의 값들(참조)이 계속 바뀐다. 왜??

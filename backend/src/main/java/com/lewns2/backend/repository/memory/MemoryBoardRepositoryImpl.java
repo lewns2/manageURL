@@ -29,7 +29,7 @@ public class MemoryBoardRepositoryImpl implements BoardRepository {
     }
 
     @Override
-    public void delete(Board board) {
-
+    public void delete(Long boardId) {
+        return;
     }
 }

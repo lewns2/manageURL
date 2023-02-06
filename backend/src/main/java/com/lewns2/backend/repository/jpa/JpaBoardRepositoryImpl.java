@@ -35,8 +35,7 @@ public class JpaBoardRepositoryImpl implements BoardRepository {
     }
 
     @Override
-    public void delete(Board board) {
-        String boardId = board.getId().toString();
+    public void delete(Long boardId) {
         this.em.createQuery("DELETE FROM Board board WHERE id=" + boardId).executeUpdate();
     }
 }

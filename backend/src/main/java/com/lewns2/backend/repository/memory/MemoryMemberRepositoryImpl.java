@@ -20,4 +20,11 @@ public class MemoryMemberRepositoryImpl implements MemberRepository {
     public Member findMemberById(Long memberId) {
         return store.get(memberId);
     }
+
+    @Override
+    public Member findMemberByNickName(String nickName) {
+        return null;
+    }
+
+
 }

@@ -1,6 +1,7 @@
 package com.lewns2.backend.service;
 
 import com.lewns2.backend.model.Board;
+import com.lewns2.backend.model.Member;
 import com.lewns2.backend.model.Url;
 import com.lewns2.backend.repository.BoardRepository;
 import org.springframework.stereotype.Service;
@@ -37,7 +38,7 @@ public class BoardServiceImpl implements BoardService{
 
     @Override
     @Transactional
-    public void deleteArticle(Board board) {
-        boardRepository.delete(board);
+    public void deleteArticle(Long boardId) {
+        boardRepository.delete(boardId);
     }
 }

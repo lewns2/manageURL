@@ -67,7 +67,7 @@ public class UrlServiceJpaTests {
     @Transactional
     void URL_저장_테스트() {
         // given
-        Member memberA = new Member("url@test.com", "123", Role.USER);
+        Member memberA = new Member("dh", "url@test.com", "123", Role.USER);
         memberService.doSignUp(memberA);
 
         Board boardA = new Board(memberA, "url-test", "url-description");
@@ -92,7 +92,7 @@ public class UrlServiceJpaTests {
     @Transactional
     void URL_삭제_테스트() {
         // given
-        Member memberA = new Member("url@test.com", "1234", Role.USER);
+        Member memberA = new Member("dh", "url@test.com", "1234", Role.USER);
         memberService.doSignUp(memberA);
 
         Board boardA = new Board(memberA, "url-test", "url-description");
