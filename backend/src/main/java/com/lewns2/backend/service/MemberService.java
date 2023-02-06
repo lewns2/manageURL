@@ -9,4 +9,6 @@ public interface MemberService {
 
     Member findMember(Long memberId);
 
+    Member findMemberByNickName(String nickname);
+
 }

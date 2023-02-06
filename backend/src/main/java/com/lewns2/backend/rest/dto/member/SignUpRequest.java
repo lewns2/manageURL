@@ -3,12 +3,14 @@ package com.lewns2.backend.rest.dto.member;
 import com.lewns2.backend.model.Member;
 
 public class SignUpRequest {
+    private String nickname;
     private String email;
     private String password;
 
     // 빌더 패턴
     public Member toEntity() {
         return Member.builder()
+                .nickname(nickname)
                 .email(email)
                 .password(password)
                 .build();
@@ -32,5 +34,13 @@ public class SignUpRequest {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getNickName() {
+        return nickname;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickname = nickName;
     }
 }

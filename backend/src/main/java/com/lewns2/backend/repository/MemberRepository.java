@@ -7,4 +7,6 @@ public interface MemberRepository{
     void save(Member member);
 
     Member findMemberById(Long memberId);
+
+    Member findMemberByNickName(String nickName);
 }

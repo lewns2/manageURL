@@ -69,7 +69,7 @@ public class BoardServiceJpaTests {
     @Transactional
     void 게시글_저장_테스트() throws Exception {
         // given
-        Member memberA = new Member("zlewns@gmail.com", "123", Role.USER);
+        Member memberA = new Member("dh", "zlewns@gmail.com", "123", Role.USER);
         memberService.doSignUp(memberA);
 
         Board board = new Board(memberA, "제목", "설명");
@@ -88,7 +88,7 @@ public class BoardServiceJpaTests {
     @Transactional
     void 특정회원_작성_게시글들_조회_테스트() throws Exception {
         // given
-        Member memberA = new Member("zlewns@gmail.com", "123", Role.USER);
+        Member memberA = new Member("dh","zlewns@gmail.com", "123", Role.USER);
         memberService.doSignUp(memberA);
 
         Board boardA = new Board(memberA, "제목1", "설명1");
@@ -109,15 +109,15 @@ public class BoardServiceJpaTests {
     @Transactional // javax.persistence.TransactionRequiredException: Executing an update/delete query
     void 게시글_삭제_테스트() throws Exception {
         // given
-        Member memberA = new Member("zlewns@gmail.com", "123", Role.USER);
+        Member memberA = new Member("dh", "zlewns@gmail.com", "123", Role.USER);
         memberService.doSignUp(memberA);
 
         Board boardA = new Board(memberA, "제목444", "설명444");
         boardService.doSaveArticle(boardA);
 
         // when
-        Board findBoard = this.boardService.findBoardById(1L);
-        boardService.deleteArticle(findBoard);
+//        Board findBoard = this.boardService.findBoardById(1L);
+        boardService.deleteArticle(1L);
 
         // then
         Assertions.assertThat(boardRepository.findByMemberId(1L)).isEmpty();
