@@ -1,6 +1,8 @@
 package com.lewns2.backend.model;
 
 
+import lombok.Builder;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +19,7 @@ public class Url extends DateEntity{
     String category;
 
     // 생성자
+    @Builder
     public Url(Board board, String address, String category) {
         this.board = board;
         this.address = address;

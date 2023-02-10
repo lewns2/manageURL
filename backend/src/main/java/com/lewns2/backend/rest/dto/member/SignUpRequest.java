@@ -2,22 +2,23 @@ package com.lewns2.backend.rest.dto.member;
 
 import com.lewns2.backend.model.Member;
 
+
 public class SignUpRequest {
-    private String nickname;
+    private String nickName;
     private String email;
     private String password;
 
     // 빌더 패턴
     public Member toEntity() {
         return Member.builder()
-                .nickname(nickname)
+                .nickname(nickName)
                 .email(email)
                 .password(password)
                 .build();
     }
 
     // 생성자
-    public SignUpRequest() {}
+    public SignUpRequest() {};
 
     // getter and setter
     public String getEmail() {
@@ -37,10 +38,10 @@ public class SignUpRequest {
     }
 
     public String getNickName() {
-        return nickname;
+        return nickName;
     }
 
     public void setNickName(String nickName) {
-        this.nickname = nickName;
+        this.nickName = nickName;
     }
 }
