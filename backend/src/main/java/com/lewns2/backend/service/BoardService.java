@@ -16,4 +16,6 @@ public interface BoardService {
 
     void deleteArticle(Long boardId);
 
+    Long updateArticle(Board board, Long boardId);
+
 }

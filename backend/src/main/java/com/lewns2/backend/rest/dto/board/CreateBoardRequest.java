@@ -34,7 +34,7 @@ public class CreateBoardRequest {
         }
     }
 
-    private String nickname;
+    private String nickName;
     private String title;
     private String description;
     private List<UrlReq> urls;
