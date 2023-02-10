@@ -41,4 +41,18 @@ public class BoardServiceImpl implements BoardService{
     public void deleteArticle(Long boardId) {
         boardRepository.delete(boardId);
     }
+
+    @Override
+    @Transactional
+    public Long updateArticle(Board board, Long boardId) {
+        Board findBoard = this.findBoardById(boardId);
+        if(board.getTitle() != null) {
+            findBoard.setTitle(board.getTitle());
+        }
+        if(board.getDescription() != null) {
+            findBoard.setDescription(board.getDescription());
+        }
+        return boardId;
+    }
+
 }
