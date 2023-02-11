@@ -12,4 +12,6 @@ public interface UrlService {
     Collection<Url> findUrls(Board board);
 
     void deleteUrl(Url url);
+
+    void updateUrls(Board board, Collection<Url> urls);
 }

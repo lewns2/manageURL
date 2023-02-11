@@ -6,7 +6,6 @@ import com.lewns2.backend.model.Member;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.sql.Update;
 
 @Getter
 @Setter

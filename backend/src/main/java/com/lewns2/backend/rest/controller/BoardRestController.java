@@ -71,10 +71,10 @@ public class BoardRestController {
 
     // 게시글 수정
     @PutMapping("/board/{id}")
-    public Long updateBoard(@RequestBody UpdateBoardRequest request, @PathVariable int id) {
+    public ResponseEntity<Long> updateBoard(@RequestBody UpdateBoardRequest request, @PathVariable int id) {
 
         // 회원 조회
-        String memberNickName = request.getNickName();  // ??
+        String memberNickName = request.getNickName();
         Member member = memberService.findMemberByNickName(memberNickName);
 
         Long boardId = Long.valueOf(id);
@@ -82,7 +82,7 @@ public class BoardRestController {
 
         Long resId = boardService.updateArticle(board, boardId);
 
-        return resId;
+        return new ResponseEntity<>(resId, HttpStatus.OK);
     }
 
 }

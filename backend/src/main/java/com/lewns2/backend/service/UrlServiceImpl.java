@@ -40,4 +40,11 @@ public class UrlServiceImpl implements UrlService{
     public void deleteUrl(Url url) {
         urlRepository.delete(url);
     }
+
+    @Override
+    @Transactional
+    public void updateUrls(Board board, Collection<Url> urls) {
+        // TODO: 해당 게시글의 URL과 요청 받은 URL을 비교한다. HOW?
+
+    }
 }
