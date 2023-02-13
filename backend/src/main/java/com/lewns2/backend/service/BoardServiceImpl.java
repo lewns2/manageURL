@@ -26,6 +26,7 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
+    @Transactional
     public Board findBoardById(Long boardId) {
         return boardRepository.findById(boardId);
     }

@@ -44,7 +44,6 @@ public class UrlServiceImpl implements UrlService{
     @Override
     @Transactional
     public void updateUrls(Board board, Collection<Url> urls) {
-        // TODO: 해당 게시글의 URL과 요청 받은 URL을 비교한다. HOW?
-
+        // TODO: Collection이라 비교하기가 어려움. 어떤 url과 매핑할 지
     }
 }

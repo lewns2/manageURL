@@ -77,10 +77,14 @@ public class BoardRestController {
         String memberNickName = request.getNickName();
         Member member = memberService.findMemberByNickName(memberNickName);
 
+        // 게시글 수정
         Long boardId = Long.valueOf(id);
         Board board = request.toEntity(member);
-
         Long resId = boardService.updateArticle(board, boardId);
+
+        // URL 수정
+        Collection<Url> urls = request.toEntityUrl(board, request.getUrls());
+        urlService.updateUrls(board, urls);
 
         return new ResponseEntity<>(resId, HttpStatus.OK);
     }

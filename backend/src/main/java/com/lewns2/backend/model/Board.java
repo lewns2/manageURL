@@ -61,25 +61,4 @@ public class Board extends DateEntity {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    // urls 추가
-//    protected List<Url> getUrlsInternal() {
-//        if (this.urls == null) {
-//            this.urls = new HashSet<>();
-//        }
-//        return this.urls;
-//    }
-//
-//    public List<Url> getUrls() {
-//        List<Url> sortedUrls = new ArrayList<>(getUrlsInternal());
-//        return Collections.unmodifiableList(sortedUrls);
-//    }
-//
-//    protected void setUrlsInternal() {
-//        this.urls = urls;
-//    }
-//
-//    public void setUrls(List<Url> urls) {
-//        this.urls = new HashSet<>(urls);
-//    }
 }
