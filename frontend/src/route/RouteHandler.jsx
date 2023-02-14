@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BoardPage } from '../pages/board';
 
 import Home from '../pages/home/HomePage';
 import Login from '../pages/user/LoginPage';
@@ -11,6 +12,7 @@ export default function RouteHandler() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/board" element={<BoardPage />} />
       </Routes>
     </BrowserRouter>
   );
