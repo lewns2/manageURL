@@ -1,1 +1,2 @@
-export { default as BoardPage } from './BoardPage';
+export * from './board-main';
+export * from './board-sidebar';
