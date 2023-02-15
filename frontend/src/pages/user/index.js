@@ -1,6 +1,4 @@
 /* user 폴더 */
 
-export * from './user-form';
-
-export { default as LoginPage } from './LoginPage';
-export { default as SignUpPage } from './SignUpPage';
+export { default as LoginPage } from './user-login/LoginPage';
+export { default as SignUpPage } from './user-signup/SignUpPage';

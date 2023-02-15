@@ -1,16 +1,14 @@
-import { useContext, useEffect, useState } from 'react';
-
-import { UserContext } from '../../../user-context/UserContext';
+import { useEffect, useState } from 'react';
+import { useSignUpContext } from '../../hooks';
 
 // role : 패스워드를 완성한다.
 const UserPassword = () => {
-  const userState = useContext(UserContext);
+  const userState = useSignUpContext();
 
   const [pwd, setPwd] = useState();
 
   useEffect(() => {
     userState.password = pwd;
-    console.log(userState.password);
   });
 
   return (

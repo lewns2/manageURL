@@ -5,4 +5,4 @@ const initValue = {
   password: '',
 };
 
-export const UserContext = createContext(initValue);
+export const LoginContext = createContext(initValue);
