@@ -1,9 +1,10 @@
 import { useNavigate } from 'react-router';
 
-import UserSignUpBaseForm from './user-form/UserSignUpBaseForm';
+import UserSignUpBaseForm from './signup-form/UserSignUpBaseForm';
 
 const SignUp = () => {
   const navigate = useNavigate();
+
   return (
     <div>
       <h2>회원가입 창</h2>

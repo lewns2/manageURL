@@ -1,17 +1,15 @@
-import { useContext, useEffect, useState } from 'react';
-
-import { UserContext } from '../../../user-context/UserContext';
+import { useEffect, useState } from 'react';
+import { useLoginContext } from '../../hooks';
 
 // role : Email을 완성한다. (local + @ + domain)
 const UserEmail = () => {
-  const userState = useContext(UserContext);
+  const userState = useLoginContext();
 
   const [local, setLocal] = useState('');
   const [domain, setDomain] = useState('');
 
   useEffect(() => {
     userState.email = [local, domain].join('@');
-    console.log(userState.email);
   }, [userState, local, domain]);
 
   return (
