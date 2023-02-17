@@ -18,8 +18,8 @@ const MenuList = () => {
 
   return (
     <div>
-      {menus.map((menu) => (
-        <NavLink to={menu.path}>
+      {menus.map((menu, index) => (
+        <NavLink to={menu.path} key={index}>
           <h3>{menu.name}</h3>
         </NavLink>
       ))}

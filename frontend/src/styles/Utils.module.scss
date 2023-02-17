@@ -1,0 +1,65 @@
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.flex {
+  display: flex;
+
+  &Center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.gap {
+  &5 {
+    gap: 5px;
+  }
+
+  &10 {
+    gap: 10px;
+  }
+
+  &15 {
+    gap: 15px;
+  }
+}
+
+.w {
+  &144 {
+    width: 144px;
+  }
+
+  &280 {
+    width: 280px;
+  }
+
+  &480 {
+    width: 480px;
+  }
+
+  &520 {
+    width: 520px;
+  }
+}
+
+.h {
+  &144 {
+    height: 144px;
+  }
+
+  &280 {
+    height: 280px;
+  }
+
+  &480 {
+    height: 480px;
+  }
+
+  &520 {
+    height: 520px;
+  }
+}
