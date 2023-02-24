@@ -3,7 +3,7 @@ import { Fragment, useRef } from 'react';
 
 import { useBoardCreateContext } from '../../../hooks';
 
-//
+// role : 배열 생성 및 변경
 const CreateUrl = (props) => {
   const url = {
     address: '',
@@ -22,7 +22,6 @@ const CreateUrl = (props) => {
 
   return (
     <div>
-      {totalUrls.length}
       {props.size >= 1 &&
         totalUrls.map((value, index) => (
           <div key={index}>
@@ -39,7 +38,7 @@ const CreateUrl = (props) => {
   );
 };
 
-// Component : 하나의 URL 인풋 데이터 관리 컴포넌트 => 문제점 : state 변경에 따른 input 한글자 후 focus 잃음. => 비제어 컴포넌트로 변경
+// 단일 입력 작성, 변경, 삭제
 const SingleUrlData = (props) => {
   const url = {
     address: '',
