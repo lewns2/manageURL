@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { CreateUrl } from './create-url';
 
+// role : 오로지 urls의 사이즈만 넘겨주는 역할
 const CreateUrlList = () => {
   const [size, setSize] = useState(1);
 
