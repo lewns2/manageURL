@@ -1,60 +1,38 @@
-const baseUrl = 'http://localhost:8080/api/';
+const baseUrl = 'http://localhost:8080/api';
 
 /* 회원 가입 */
-function fetchSignUp(data) {
-  let isSuccess = false;
-
-  const suspender = fetch(`${baseUrl}/signup`, {
+const signUp = async (data) => {
+  const res = await fetch(`${baseUrl}/signup`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      data,
-    }),
-  }).then((response) => response.json());
+    body: JSON.stringify(data),
+  });
 
-  return {
-    read() {
-      if (isSuccess === false) {
-        throw suspender;
-      } else {
-        return isSuccess;
-      }
-    },
-  };
-}
+  const resData = await res.json();
+
+  return resData;
+};
 
 /* 로그인 */
-function fetchLogin(data) {
-  let isSuccess = false;
-
-  const suspender = fetch(`${baseUrl}/login`, {
+const login = async (data) => {
+  const res = fetch(`${baseUrl}/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      data,
-    }),
-  }).then((response) => response.json());
+    body: JSON.stringify(data),
+  });
 
-  return {
-    read() {
-      if (isSuccess === false) {
-        throw suspender;
-      } else {
-        return isSuccess;
-      }
-    },
-  };
-}
+  const resData = await res.json();
 
-function fetchUserData(userData) {
-  return {
-    signup: fetchSignUp(userData),
-    login: fetchLogin(userData),
-  };
-}
+  return resData;
+};
+
+export const fetchUserData = {
+  login,
+  signUp,
+};
 
 export default fetchUserData;
