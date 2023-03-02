@@ -1,4 +1,4 @@
-package com.lewns2.backend.rest.dto.board;
+package com.lewns2.backend.rest.dto.board.request;
 
 
 import com.lewns2.backend.model.Board;

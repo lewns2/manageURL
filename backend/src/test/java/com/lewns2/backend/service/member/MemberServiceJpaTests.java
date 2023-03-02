@@ -3,6 +3,10 @@ package com.lewns2.backend.service.member;
 import com.lewns2.backend.model.Member;
 import com.lewns2.backend.model.Role;
 import com.lewns2.backend.repository.MemberRepository;
+import com.lewns2.backend.rest.dto.member.request.LoginRequest;
+import com.lewns2.backend.rest.exception.ExceptionResponse;
+import com.lewns2.backend.rest.exception.badrequest.InvalidPasswordException;
+import com.lewns2.backend.rest.exception.notfound.MemberNotFoundException;
 import com.lewns2.backend.service.MemberService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
@@ -79,6 +83,53 @@ public class MemberServiceJpaTests {
         // 그래서 멤버 객체와 멤버 객체의 동등 비교는 참조 값이 다르기에 적절하지 않은 거 같다.
         // Assertions.assertThat(memberRepository.findMemberById(1L)).isEqualTo(findMember);
 //        Assertions.assertThat(findMemberA.getEmail()).isEqualTo(memberA.getEmail());
+    }
 
+    @Test
+    @Transactional
+    public void 로그인_성공_테스트() throws Exception {
+        // given
+        Member memberA = new Member("dh", "test1@gmail.com", "test1", Role.USER);
+        memberService.doSignUp(memberA);
+
+        // when
+        String res = memberService.doLogin(memberA);
+
+        // then
+        Assertions.assertThat(res).isEqualTo(memberA.getNickName());
+    }
+
+    @Test
+    @Transactional
+    public void 미회원가입_으로_인한_로그인_실패_테스트() throws Exception {
+        // given
+        Member memberA = new Member("dh", "test1@gmail.com", "test1", Role.USER);
+        memberService.doSignUp(memberA);
+
+        // when
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setEmail("wrong@gmail.com");
+        loginRequest.setPassword("test1");
+        Member LoginMember = loginRequest.toEntity();
+
+        // then
+        Assertions.assertThatThrownBy(() -> memberService.doLogin(LoginMember)).isInstanceOf(MemberNotFoundException.class);
+    }
+
+    @Test
+    @Transactional
+    public void 비밀번호_불일치로_인한_로그인_실패_테스트() throws Exception {
+        // given
+        Member memberA = new Member("dh", "test1@gmail.com", "test1", Role.USER);
+        memberService.doSignUp(memberA);
+
+        // when
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setEmail("test1@gmail.com");
+        loginRequest.setPassword("wrong");
+        Member LoginMember = loginRequest.toEntity();
+
+        // then
+        Assertions.assertThatThrownBy(() -> memberService.doLogin(LoginMember)).isInstanceOf(InvalidPasswordException.class);
     }
 }

@@ -1,4 +1,4 @@
-package com.lewns2.backend.rest.dto.board;
+package com.lewns2.backend.rest.dto.board.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
