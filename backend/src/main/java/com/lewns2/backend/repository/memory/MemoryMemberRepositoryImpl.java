@@ -4,6 +4,7 @@ import com.lewns2.backend.model.Member;
 import com.lewns2.backend.repository.MemberRepository;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class MemoryMemberRepositoryImpl implements MemberRepository {
@@ -23,6 +24,11 @@ public class MemoryMemberRepositoryImpl implements MemberRepository {
 
     @Override
     public Member findMemberByNickName(String nickName) {
+        return null;
+    }
+
+    @Override
+    public Optional<Member> findMemberByEmail(String email) {
         return null;
     }
 

@@ -1,15 +1,15 @@
-package com.lewns2.backend.rest.dto.member;
+package com.lewns2.backend.rest.dto.member.response;
 
-public class MemberResponse {
+public class SignUpResponse {
     private Long memberId;
 
     // 정적 팩토리 메서드 패턴
-    public static MemberResponse from(Long id) {
-        return new MemberResponse(id);
+    public static SignUpResponse from(Long id) {
+        return new SignUpResponse(id);
     }
 
     // 생성자
-    public MemberResponse(Long memberId) {
+    public SignUpResponse(Long memberId) {
         this.memberId = memberId;
     }
 
