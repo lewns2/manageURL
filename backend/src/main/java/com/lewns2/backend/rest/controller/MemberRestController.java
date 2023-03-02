@@ -6,10 +6,7 @@ import com.lewns2.backend.rest.dto.member.SignUpRequest;
 import com.lewns2.backend.service.MemberService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -29,7 +26,6 @@ public class MemberRestController {
         /* 1. 요청 memberDto를 member 엔티티로 변환
         // 2. 서비스 호출 : 등록
         // 3, dto를 반환 */
-
 
         // 1. 빌더 패턴 사용해보기
         Member member = signUpRequest.toEntity();
