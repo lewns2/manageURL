@@ -3,9 +3,10 @@ package com.lewns2.backend.rest.controller;
 import com.lewns2.backend.model.Board;
 import com.lewns2.backend.model.Member;
 import com.lewns2.backend.model.Url;
-import com.lewns2.backend.rest.dto.board.response.BoardResponse;
+import com.lewns2.backend.rest.dto.board.response.BoardIdResponse;
 import com.lewns2.backend.rest.dto.board.request.CreateBoardRequest;
 import com.lewns2.backend.rest.dto.board.request.UpdateBoardRequest;
+import com.lewns2.backend.rest.dto.board.response.BoardsResponse;
 import com.lewns2.backend.service.board.BoardService;
 import com.lewns2.backend.service.member.MemberService;
 import com.lewns2.backend.service.url.UrlService;
@@ -32,7 +33,7 @@ public class BoardRestController {
 
     // 게시글 작성
     @PostMapping("/board")
-    public ResponseEntity<BoardResponse>  createBoard(@RequestBody CreateBoardRequest request) {
+    public ResponseEntity<BoardIdResponse>  createBoard(@RequestBody CreateBoardRequest request) {
 
         // 회원 조회
         String memberNickName = request.getNickName();
@@ -49,16 +50,16 @@ public class BoardRestController {
         Collection<Url> urls = request.toEntityUrl(board, request.getUrls());
         urlService.doSaveUrls(urls);
 
-        return new ResponseEntity<>(BoardResponse.from(id), HttpStatus.OK);
+        return new ResponseEntity<>(BoardIdResponse.from(id), HttpStatus.OK);
     }
 
     // 게시글 조회
     @GetMapping("/board/{nickName}")
-    public ResponseEntity<Collection<Board>> getBoard(@PathVariable String nickName) {
+    public ResponseEntity<BoardsResponse> getBoard(@PathVariable String nickName) {
         Member member = memberService.findMemberByNickName(nickName);
         Collection<Board> boardRes = boardService.findBoardByMemberId(member.getId());
 
-        return new ResponseEntity<>(boardRes, HttpStatus.OK);
+        return new ResponseEntity<>(BoardsResponse.from(boardRes), HttpStatus.OK);
     }
 
     // 게시글 삭제
