@@ -1,4 +1,4 @@
-package com.lewns2.backend.rest.controller;
+package com.lewns2.backend.rest.controller.board;
 
 import com.lewns2.backend.model.Board;
 import com.lewns2.backend.model.Member;

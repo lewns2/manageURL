@@ -1,4 +1,4 @@
-package com.lewns2.backend.rest.controller;
+package com.lewns2.backend.rest.controller.member;
 
 import com.lewns2.backend.model.Member;
 import com.lewns2.backend.rest.dto.member.request.LoginRequest;
