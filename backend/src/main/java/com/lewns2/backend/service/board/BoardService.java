@@ -1,8 +1,6 @@
-package com.lewns2.backend.service;
+package com.lewns2.backend.service.board;
 
 import com.lewns2.backend.model.Board;
-import com.lewns2.backend.model.Member;
-import com.lewns2.backend.model.Url;
 
 import java.util.Collection;
 

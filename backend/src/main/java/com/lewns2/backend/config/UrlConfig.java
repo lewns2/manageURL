@@ -2,8 +2,8 @@ package com.lewns2.backend.config;
 
 import com.lewns2.backend.repository.UrlRepository;
 import com.lewns2.backend.repository.jpa.JpaUrlRepositoryImpl;
-import com.lewns2.backend.service.UrlService;
-import com.lewns2.backend.service.UrlServiceImpl;
+import com.lewns2.backend.service.url.UrlService;
+import com.lewns2.backend.service.url.UrlServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

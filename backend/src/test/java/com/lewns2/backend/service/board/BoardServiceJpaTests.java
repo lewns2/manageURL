@@ -3,15 +3,11 @@ package com.lewns2.backend.service.board;
 import com.lewns2.backend.model.Board;
 import com.lewns2.backend.model.Member;
 import com.lewns2.backend.model.Role;
-import com.lewns2.backend.model.Url;
 import com.lewns2.backend.repository.BoardRepository;
 import com.lewns2.backend.repository.MemberRepository;
-import com.lewns2.backend.service.BoardService;
-import com.lewns2.backend.service.MemberService;
+import com.lewns2.backend.service.member.MemberService;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,10 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 @SpringBootTest
 public class BoardServiceJpaTests {

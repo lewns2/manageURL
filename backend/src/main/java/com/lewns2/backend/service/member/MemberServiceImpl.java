@@ -1,4 +1,4 @@
-package com.lewns2.backend.service;
+package com.lewns2.backend.service.member;
 
 import com.lewns2.backend.model.Member;
 import com.lewns2.backend.repository.MemberRepository;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Objects;
-import java.util.Optional;
 
 @Service
 public class MemberServiceImpl implements MemberService {
