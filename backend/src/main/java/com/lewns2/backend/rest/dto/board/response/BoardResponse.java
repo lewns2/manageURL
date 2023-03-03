@@ -1,15 +1,21 @@
 package com.lewns2.backend.rest.dto.board.response;
 
-import lombok.AllArgsConstructor;
+import com.lewns2.backend.model.Board;
 import lombok.Getter;
 
-
 @Getter
-@AllArgsConstructor
 public class BoardResponse {
-    private Long boardId;
+    String title;
+    String description;
 
-    public static BoardResponse from(Long id) {
-        return new BoardResponse(id);
+    private BoardResponse() {};
+
+    private BoardResponse(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
+
+    public static BoardResponse from(final Board board) {
+        return new BoardResponse(board.getTitle(), board.getDescription());
     }
 }

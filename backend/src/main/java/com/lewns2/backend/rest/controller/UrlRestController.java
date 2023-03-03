@@ -3,6 +3,7 @@ package com.lewns2.backend.rest.controller;
 import com.lewns2.backend.model.Board;
 import com.lewns2.backend.model.Member;
 import com.lewns2.backend.model.Url;
+import com.lewns2.backend.rest.dto.url.response.UrlsResponse;
 import com.lewns2.backend.service.board.BoardService;
 import com.lewns2.backend.service.member.MemberService;
 import com.lewns2.backend.service.url.UrlService;
@@ -31,14 +32,15 @@ public class UrlRestController {
 
     // 특정 회원의 URL 전체 조회
     @GetMapping("/urls/{nickName}")
-    public ResponseEntity<?> getUrls(@PathVariable String nickName) {
+    public ResponseEntity<UrlsResponse> getUrls(@PathVariable String nickName) {
 
         Member member = memberService.findMemberByNickName(nickName);
         Collection<Board> boardRes = boardService.findBoardByMemberId(member.getId());
 
         Collection<Url> findUrls = urlService.findMemberUrls(boardRes);
 
-        return new ResponseEntity<>(findUrls, HttpStatus.OK);
+
+        return new ResponseEntity<>(UrlsResponse.from(findUrls), HttpStatus.OK);
     }
 
 }
