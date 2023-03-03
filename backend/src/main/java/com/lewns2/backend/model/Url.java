@@ -18,6 +18,8 @@ public class Url extends DateEntity{
     @Column
     String category;
 
+    public Url() {}
+
     // 생성자
     @Builder
     public Url(Board board, String address, String category) {

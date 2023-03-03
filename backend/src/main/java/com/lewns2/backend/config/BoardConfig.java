@@ -2,9 +2,8 @@ package com.lewns2.backend.config;
 
 import com.lewns2.backend.repository.BoardRepository;
 import com.lewns2.backend.repository.jpa.JpaBoardRepositoryImpl;
-import com.lewns2.backend.repository.memory.MemoryBoardRepositoryImpl;
-import com.lewns2.backend.service.BoardService;
-import com.lewns2.backend.service.BoardServiceImpl;
+import com.lewns2.backend.service.board.BoardService;
+import com.lewns2.backend.service.board.BoardServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

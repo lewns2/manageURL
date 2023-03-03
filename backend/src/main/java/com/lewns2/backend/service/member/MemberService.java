@@ -1,4 +1,4 @@
-package com.lewns2.backend.service;
+package com.lewns2.backend.service.member;
 
 
 import com.lewns2.backend.model.Member;

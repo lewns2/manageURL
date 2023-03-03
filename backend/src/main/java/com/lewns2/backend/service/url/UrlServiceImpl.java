@@ -1,4 +1,4 @@
-package com.lewns2.backend.service;
+package com.lewns2.backend.service.url;
 
 import com.lewns2.backend.model.Board;
 import com.lewns2.backend.model.Url;
@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 
 @Service
@@ -31,9 +33,22 @@ public class UrlServiceImpl implements UrlService{
 
     @Override
     @Transactional
-    public Collection<Url> findUrls(Board board) {
+    public Collection<Url> findBoardUrls(Board board) {
         return urlRepository.findUrls(board);
     }
+
+    @Override
+    public Collection<Url> findMemberUrls(Collection<Board> boards) {
+        Collection<Url> findUrlRes = new ArrayList<>();
+
+        for(Board board : boards) {
+            List<Url> findUrlList = urlRepository.findUrls(board);
+            findUrlRes.addAll(findUrlList);
+        }
+
+        return findUrlRes;
+    }
+
 
     @Override
     @Transactional

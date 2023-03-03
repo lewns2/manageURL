@@ -5,10 +5,8 @@ import com.lewns2.backend.model.Board;
 import com.lewns2.backend.model.Member;
 import com.lewns2.backend.model.Role;
 import com.lewns2.backend.model.Url;
-import com.lewns2.backend.repository.UrlRepository;
-import com.lewns2.backend.service.BoardService;
-import com.lewns2.backend.service.MemberService;
-import com.lewns2.backend.service.UrlService;
+import com.lewns2.backend.service.board.BoardService;
+import com.lewns2.backend.service.member.MemberService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -81,7 +79,7 @@ public class UrlServiceJpaTests {
 
         // when
         urlService.doSaveUrls(urls);
-        Collection<Url> findUrls = urlService.findUrls(boardA);
+        Collection<Url> findUrls = urlService.findBoardUrls(boardA);
 
 
         // then
@@ -106,11 +104,11 @@ public class UrlServiceJpaTests {
         urlService.doSaveUrls(urls);
 
         // when
-        Collection<Url> prevResUrls = urlService.findUrls(boardA);
+        Collection<Url> prevResUrls = urlService.findBoardUrls(boardA);
         Assertions.assertThat(prevResUrls.size()).isEqualTo(2);
 
         urlService.deleteUrl(urlA);
-        Collection<Url> resUrls = urlService.findUrls(boardA);
+        Collection<Url> resUrls = urlService.findBoardUrls(boardA);
         Url[] urlArr = resUrls.toArray(new Url[resUrls.size()]);
 
         // then

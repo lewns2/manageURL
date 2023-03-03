@@ -1,4 +1,4 @@
-package com.lewns2.backend.service;
+package com.lewns2.backend.service.url;
 
 import com.lewns2.backend.model.Board;
 import com.lewns2.backend.model.Url;
@@ -9,7 +9,9 @@ public interface UrlService {
 
     void doSaveUrls(Collection<Url> urls);
 
-    Collection<Url> findUrls(Board board);
+    Collection<Url> findBoardUrls(Board board);
+
+    Collection<Url> findMemberUrls(Collection<Board> boards);
 
     void deleteUrl(Url url);
 
