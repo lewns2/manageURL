@@ -33,7 +33,7 @@ const CreateUrl = (props) => {
             />
           </div>
         ))}
-      <span onClick={() => console.log(totalUrls)}>저장</span>
+      <span onClick={() => (boardState.urls = totalUrls)}>저장</span>
     </div>
   );
 };
