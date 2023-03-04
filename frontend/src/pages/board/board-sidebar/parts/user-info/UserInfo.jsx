@@ -1,5 +1,5 @@
 const UserInfo = () => {
-  return <div>유저닉네임</div>;
+  return <div>{localStorage.getItem('nickName')} 님</div>;
 };
 
 export default UserInfo;
