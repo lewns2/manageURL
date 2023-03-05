@@ -1,6 +1,6 @@
 import { Category, UserInfo } from './parts';
 
-const BoardSidebar = () => {
+const BoardSideMenu = () => {
   return (
     <div>
       <h2>사이드바</h2>
@@ -10,4 +10,4 @@ const BoardSidebar = () => {
   );
 };
 
-export default BoardSidebar;
+export default BoardSideMenu;

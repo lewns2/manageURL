@@ -1,19 +1,19 @@
 import { useState } from 'react';
-import { CreateUrl } from './create-url';
+import { UrlList } from './create-url';
 
-// role : 오로지 urls의 사이즈만 넘겨주는 역할
+// role : 동적인 URL 갯수 결정
 const CreateUrlList = () => {
   const [size, setSize] = useState(1);
 
   return (
     <div>
       <HandleUrlSize setSize={setSize} />
-      <CreateUrl size={size} />
+      <UrlList size={size} />
     </div>
   );
 };
 
-// Component : URL 데이터들의 갯수 조절
+// URL 데이터들의 갯수 조절
 const HandleUrlSize = (props) => {
   return (
     <>

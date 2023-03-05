@@ -1,4 +1,3 @@
-// import { ENDPOINTS, METHOD, HEADERS } from '@/constants/api';
 import { ENDPOINTS, METHOD, HEADERS } from '../../../constants/api';
 
 const userApi = {

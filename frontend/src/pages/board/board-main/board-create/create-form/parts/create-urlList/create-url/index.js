@@ -1,1 +1,1 @@
-export { default as CreateUrl } from './CreateUrl';
+export { default as UrlList } from './UrlList';

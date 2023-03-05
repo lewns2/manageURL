@@ -2,6 +2,7 @@ import board from '../../../board-api/board';
 import { useBoardCreateContext } from './hooks';
 import { CreateDescription, CreateTitle, CreateUrlList } from './parts';
 
+// role : 글 작성 Form 구성 및 FormData 제출
 const BoardCreateBaseForm = () => {
   const boardState = useBoardCreateContext();
 

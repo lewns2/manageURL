@@ -1,11 +1,11 @@
 import { Suspense } from 'react';
-import { BoardSidebar } from '../../board-sidebar';
+import { BoardSideMenu } from '../../board-sidemenu';
 import { boardApi } from '../../board-api';
 
 const MyUrlPage = () => {
   return (
     <div>
-      <BoardSidebar />
+      <BoardSideMenu />
       <h2>URL 모아보기 컴포넌트</h2>
       <Suspense fallback={<p>URL 불러오는 중...</p>}>
         <UrlList resource={boardApi.fetchUrls(localStorage.getItem('nickName'))}></UrlList>
