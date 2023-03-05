@@ -1,24 +1,21 @@
-import { useEffect, useState } from 'react';
-import { Fragment, useRef } from 'react';
-
+import { useEffect, useState, useMemo, Fragment, useRef } from 'react';
 import { useBoardCreateContext } from '../../../hooks';
 
 // role : 배열 생성 및 변경
 const CreateUrl = (props) => {
-  const url = {
-    address: '',
-    category: '',
-  };
-
+  const url = useMemo(() => ({ address: '', category: '' }), []);
   const boardState = useBoardCreateContext();
   const [totalUrls, setTotalUrls] = useState([url]);
 
   // 상위 컴포넌트의 상태 변화에 따른 렌더링
   useEffect(() => {
-    setTotalUrls(
-      props.size > totalUrls.length ? [...totalUrls, url] : totalUrls.slice(0, props.size),
-    );
-  }, [props.size]);
+    setTotalUrls((prev) => (props.size > prev.length ? [...prev, url] : prev.slice(0, props.size)));
+  }, [props.size, url]);
+
+  // 배열 상태 변화 감지
+  useEffect(() => {
+    boardState.urls = totalUrls;
+  }, [totalUrls, boardState]);
 
   return (
     <div>
@@ -33,7 +30,6 @@ const CreateUrl = (props) => {
             />
           </div>
         ))}
-      <span onClick={() => (boardState.urls = totalUrls)}>저장</span>
     </div>
   );
 };
@@ -84,7 +80,7 @@ const SingleUrlData = (props) => {
         name="category"
         ref={categoryInputRef}
         value={props.value.category}></input>
-      <span onClick={(e) => deleteData()}>삭제</span>
+      <span onClick={() => deleteData()}>삭제</span>
     </Fragment>
   );
 };
