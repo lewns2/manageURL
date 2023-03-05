@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { BoardSideMenu } from '../../board-sideMenu';
+import { BoardSideMenu } from '../../board-sidemenu';
 import { boardApi } from '../../board-api';
 
 const MyBoardPage = () => {

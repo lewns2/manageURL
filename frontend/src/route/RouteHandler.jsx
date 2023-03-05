@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { BoardCreatePage, BoardHomePage, MyBoardPage, MyUrlPage } from '../pages/board/board-main';
 
 import { HomePage } from '../pages/home';
 import { LoginPage, SignUpPage } from '../pages/user';
+import { BoardCreatePage, BoardHomePage, MyBoardPage, MyUrlPage } from '../pages/board/board-main';
 
 export default function RouteHandler() {
   return (

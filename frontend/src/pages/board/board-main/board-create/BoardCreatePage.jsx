@@ -1,4 +1,4 @@
-import { BoardSideMenu } from '../../board-sideMenu';
+import { BoardSideMenu } from '../../board-sidemenu';
 import { BoardCreateBaseForm } from './create-form';
 
 const BoardCreatePage = () => {

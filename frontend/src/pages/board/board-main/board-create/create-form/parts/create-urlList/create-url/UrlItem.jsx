@@ -1,41 +1,7 @@
-import { useEffect, useState, useMemo, Fragment, useRef } from 'react';
-import { useBoardCreateContext } from '../../../hooks';
+import { Fragment, useRef } from 'react';
 
-// role : 배열 생성 및 변경
-const CreateUrl = (props) => {
-  const url = useMemo(() => ({ address: '', category: '' }), []);
-  const boardState = useBoardCreateContext();
-  const [totalUrls, setTotalUrls] = useState([url]);
-
-  // 상위 컴포넌트의 상태 변화에 따른 렌더링
-  useEffect(() => {
-    setTotalUrls((prev) => (props.size > prev.length ? [...prev, url] : prev.slice(0, props.size)));
-  }, [props.size, url]);
-
-  // 배열 상태 변화 감지
-  useEffect(() => {
-    boardState.urls = totalUrls;
-  }, [totalUrls, boardState]);
-
-  return (
-    <div>
-      {props.size >= 1 &&
-        totalUrls.map((value, index) => (
-          <div key={index}>
-            <SingleUrlData
-              index={index}
-              setTotalUrls={setTotalUrls}
-              totalUrls={totalUrls}
-              value={value}
-            />
-          </div>
-        ))}
-    </div>
-  );
-};
-
-// 단일 입력 작성, 변경, 삭제
-const SingleUrlData = (props) => {
+// role : 단일 입력 작성, 변경, 삭제
+const UrlItem = (props) => {
   const url = {
     address: '',
     category: '',
@@ -85,4 +51,4 @@ const SingleUrlData = (props) => {
   );
 };
 
-export default CreateUrl;
+export default UrlItem;

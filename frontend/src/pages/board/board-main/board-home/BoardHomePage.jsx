@@ -1,4 +1,4 @@
-import { BoardSideMenu } from '../../board-sideMenu';
+import { BoardSideMenu } from '../../board-sidemenu';
 
 const BoardHomePage = () => {
   return (
