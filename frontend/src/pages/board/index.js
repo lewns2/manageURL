@@ -1,2 +1,2 @@
 export * from './board-main';
-export * from './board-sidebar';
+export * from './board-sidemenu';

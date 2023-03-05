@@ -12,6 +12,52 @@
     justify-content: center;
     align-items: center;
   }
+
+  &Right {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+
+  &Row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &Column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.justify {
+  &Start {
+    justify-content: start;
+  }
+
+  &End {
+    justify-content: end;
+  }
+
+  &Center {
+    justify-content: center;
+  }
+
+  &Between {
+    justify-content: space-between;
+  }
+
+  &Around {
+    justify-content: space-around;
+  }
+
+  &Evenly {
+    justify-content: space-evenly;
+  }
 }
 
 .gap {
