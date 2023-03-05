@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const ButtonStyle = styled.button`
+const FormButtonStyle = styled.button`
   background-color: white;
   border: 1px solid;
   border-radius: 10px;
@@ -12,7 +12,7 @@ const ButtonStyle = styled.button`
 `;
 
 const FormBtn = ({ children, ...rest }) => {
-  return <ButtonStyle {...rest}>{children}</ButtonStyle>;
+  return <FormButtonStyle {...rest}>{children}</FormButtonStyle>;
 };
 
 export default FormBtn;

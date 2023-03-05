@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router';
-import Header from '../../components/layouts/Header';
+import Header from '../../components/layouts/header/Header';
+import CommonBtn from '../../components/parts/button/CommonBtn';
+import { Content, Title } from '../../components/parts/font';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -7,10 +9,14 @@ export default function Home() {
   return (
     <>
       <Header />
-      <h2>시작하기</h2>
+      <Title>시작하기</Title>
 
-      <button onClick={() => navigate('/login')}>Start</button>
-      <button onClick={() => navigate('/signup')}>회원가입</button>
+      <CommonBtn onClick={() => navigate('/login')}>
+        <Content>시작하기</Content>
+      </CommonBtn>
+      <CommonBtn onClick={() => navigate('/signup')}>
+        <Content>회원가입</Content>
+      </CommonBtn>
     </>
   );
 }

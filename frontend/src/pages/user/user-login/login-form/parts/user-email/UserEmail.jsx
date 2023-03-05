@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import StyleInput from '../../../../../../components/parts/input/StyleInput';
 import { useLoginContext } from '../../hooks';
 
 // role : Email을 완성한다. (local + @ + domain)
@@ -16,11 +17,11 @@ const UserEmail = () => {
     <div>
       <label>
         이메일
-        <input onChange={(e) => onChangeLocal(e, setLocal)}></input>
+        <StyleInput onChange={(e) => onChangeLocal(e, setLocal)}></StyleInput>
       </label>
       <span>@</span>
 
-      <input value={domain} onChange={(e) => onChangeDomain(e, setDomain)}></input>
+      <StyleInput value={domain} onChange={(e) => onChangeDomain(e, setDomain)}></StyleInput>
 
       <SelectBox setDomain={setDomain}></SelectBox>
     </div>

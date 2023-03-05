@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
 
 /* Componets */
+import Header from '../../../components/layouts/header/Header';
 import UserLoginBaseForm from './login-form/UserLoginBaseForm';
 
 /* CSS 모듈 */
@@ -11,6 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
   return (
     <div>
+      <Header />
       <Title>로그인 창</Title>
       <SubTitle>로그인 창</SubTitle>
 

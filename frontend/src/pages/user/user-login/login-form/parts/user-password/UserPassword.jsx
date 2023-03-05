@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import StyleInput from '../../../../../../components/parts/input/StyleInput';
 import { useLoginContext } from '../../hooks';
 
 // role : 패스워드를 완성한다.
@@ -13,10 +14,8 @@ const UserPassword = () => {
 
   return (
     <div>
-      <label>
-        비밀번호
-        <input type="password" onChange={(e) => onChangePassword(e, setPwd)}></input>
-      </label>
+      <label>비밀번호</label>
+      <StyleInput type="password" onChange={(e) => onChangePassword(e, setPwd)}></StyleInput>
     </div>
   );
 };
