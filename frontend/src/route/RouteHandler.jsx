@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { HomePage } from '../pages/home';
 import { LoginPage, SignUpPage } from '../pages/user';
-import { BoardCreatePage, BoardHomePage, MyBoardPage, MyUrlPage } from '../pages/board/board-main';
+import { BoardCreatePage, BoardHomePage, MyBoardPage, MyUrlPage } from '../pages/board';
 
 export default function RouteHandler() {
   return (

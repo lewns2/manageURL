@@ -1,15 +1,15 @@
-import { LoginInputWrapper } from '../../../../components/layouts';
+import { InputWrapper } from '../../../../components/layouts';
 import { UserEmail, UserPassword } from './parts';
 
 const LoginBaseForm = () => {
   return (
     <form>
-      <LoginInputWrapper>
+      <InputWrapper>
         <UserEmail />
-      </LoginInputWrapper>
-      <LoginInputWrapper>
+      </InputWrapper>
+      <InputWrapper>
         <UserPassword />
-      </LoginInputWrapper>
+      </InputWrapper>
     </form>
   );
 };

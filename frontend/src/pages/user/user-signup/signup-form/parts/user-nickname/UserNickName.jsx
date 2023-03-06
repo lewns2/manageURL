@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useSignUpContext } from '../../hooks';
+import { NickName } from '../../../../../../components/layouts/user/signup';
+import { useSignUpContext } from '../../../hooks';
 
 // role : NickName을 완성한다.
 const UserNickName = () => {
@@ -12,10 +13,10 @@ const UserNickName = () => {
   });
 
   return (
-    <div>
-      <label>닉네임</label>
-      <input onChange={(e) => onChangeNickName(e, setNickName)}></input>
-    </div>
+    <>
+      <NickName.Label />
+      <NickName.Input onChange={(e) => onChangeNickName(e, setNickName)} />
+    </>
   );
 };
 
