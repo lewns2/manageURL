@@ -1,26 +1,51 @@
 import { useNavigate } from 'react-router';
 
 /* Componets */
-import Header from '../../../components/layouts/header/Header';
-import UserLoginBaseForm from './login-form/UserLoginBaseForm';
+import LoginBaseForm from './login-form/LoginBaseForm';
 
 /* CSS 모듈 */
-import { Title, SubTitle } from '../../../components/parts/font';
-import { FormBtn } from '../../../components/parts';
+import {
+  LayoutWithHeader,
+  UserContainer,
+  UserTitle,
+  UserFormContent,
+  LoginMenu,
+  UserButtonContent,
+} from '../../../components/layouts';
+
+import { useLoginContext } from './hooks';
+import { userApi } from '../user-api';
 
 const Login = () => {
   const navigate = useNavigate();
+  const userState = useLoginContext();
   return (
-    <div>
-      <Header />
-      <Title>로그인 창</Title>
-      <SubTitle>로그인 창</SubTitle>
+    <LayoutWithHeader>
+      <UserContainer>
+        <UserTitle>로그인</UserTitle>
 
-      <UserLoginBaseForm />
-      <FormBtn onClick={() => navigate('/signup')}>회원가입</FormBtn>
-      <button onClick={() => navigate('/signup')}>회원가입하러가기</button>
-    </div>
+        <UserFormContent>
+          <LoginBaseForm />
+        </UserFormContent>
+
+        <UserButtonContent>
+          <LoginMenu onClick={() => summitFormData(userState)}>로그인</LoginMenu>
+          <LoginMenu onClick={() => navigate('/signup')}>회원가입하러가기</LoginMenu>
+        </UserButtonContent>
+      </UserContainer>
+    </LayoutWithHeader>
   );
+};
+
+// role : Form Data로 로그인 API 요청을 한다.
+const summitFormData = async (userState) => {
+  const userInfo = await userApi.login(userState);
+  resistLocalStorage(userInfo);
+};
+
+// // role : 로컬스토리지에 저장한다.
+const resistLocalStorage = (userInfo) => {
+  localStorage.setItem('nickName', userInfo.nickName);
 };
 
 export default Login;
