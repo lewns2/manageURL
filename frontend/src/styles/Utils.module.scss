@@ -13,6 +13,11 @@
     align-items: center;
   }
 
+  &RowCenter {
+    display: flex;
+    justify-content: center;
+  }
+
   &Right {
     display: flex;
     justify-content: right;
@@ -75,6 +80,10 @@
 }
 
 .w {
+  &80 {
+    width: 80px;
+  }
+
   &144 {
     width: 144px;
   }

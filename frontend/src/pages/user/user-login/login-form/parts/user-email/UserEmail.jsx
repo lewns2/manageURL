@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import StyleInput from '../../../../../../components/parts/input/StyleInput';
-import { useLoginContext } from '../../hooks';
+import { Email } from '../../../../../../components/layouts/user/login';
+import { useLoginContext } from '../../../hooks';
 
 // role : Email을 완성한다. (local + @ + domain)
 const UserEmail = () => {
@@ -11,20 +11,17 @@ const UserEmail = () => {
 
   useEffect(() => {
     userState.email = [local, domain].join('@');
+    console.log(userState.email);
   }, [userState, local, domain]);
 
   return (
-    <div>
-      <label>
-        이메일
-        <StyleInput onChange={(e) => onChangeLocal(e, setLocal)}></StyleInput>
-      </label>
-      <span>@</span>
-
-      <StyleInput value={domain} onChange={(e) => onChangeDomain(e, setDomain)}></StyleInput>
-
+    <>
+      <Email.Label />
+      <Email.LocalInput onChange={(e) => onChangeLocal(e, setLocal)} />
+      <Email.At />
+      <Email.DomainInput value={domain} onChange={(e) => onChangeDomain(e, setDomain)} />
       <SelectBox setDomain={setDomain}></SelectBox>
-    </div>
+    </>
   );
 };
 
@@ -44,15 +41,13 @@ const SelectBox = (props) => {
   };
 
   return (
-    <>
-      <select onChange={handleSelect} value={selected}>
-        {options.map((option) => (
-          <option key={option.label} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-    </>
+    <Email.SelectBox onChange={handleSelect} value={selected}>
+      {options.map((option) => (
+        <option key={option.label} value={option.value}>
+          {option.label}
+        </option>
+      ))}
+    </Email.SelectBox>
   );
 };
 
