@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useSignUpContext } from '../../hooks';
+import { Email } from '../../../../../../components/layouts';
+import { useSignUpContext } from '../../../hooks';
 
 // role : Email을 완성한다. (local + @ + domain)
 const UserEmail = () => {
@@ -13,17 +14,13 @@ const UserEmail = () => {
   }, [userState, local, domain]);
 
   return (
-    <div>
-      <label>
-        이메일
-        <input onChange={(e) => onChangeLocal(e, setLocal)}></input>
-      </label>
-      <span>@</span>
-
-      <input value={domain} onChange={(e) => onChangeDomain(e, setDomain)}></input>
-
+    <>
+      <Email.Label />
+      <Email.LocalInput onChange={(e) => onChangeLocal(e, setLocal)} />
+      <Email.At />
+      <Email.DomainInput value={domain} onChange={(e) => onChangeDomain(e, setDomain)} />
       <SelectBox setDomain={setDomain}></SelectBox>
-    </div>
+    </>
   );
 };
 
@@ -44,13 +41,13 @@ const SelectBox = (props) => {
 
   return (
     <>
-      <select onChange={handleSelect} value={selected}>
+      <Email.SelectBox onChange={handleSelect} value={selected}>
         {options.map((option) => (
           <option key={option.label} value={option.value}>
             {option.label}
           </option>
         ))}
-      </select>
+      </Email.SelectBox>
     </>
   );
 };
