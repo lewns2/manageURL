@@ -27,12 +27,14 @@ public class JpaMemberRepositoryImpl implements MemberRepository {
     }
 
     @Override
-    public Member findMemberByNickName(String nickname) {
+    public Optional<Member> findMemberByNickName(String nickname) {
         String qlString = "select m from Member m where m.nickname= :nickname";
-        Member findMember = this.em.createQuery(qlString, Member.class).setParameter("nickname", nickname).getSingleResult();
 
-
-        return findMember;
+        try {
+            return Optional.of(this.em.createQuery(qlString, Member.class).setParameter("nickname", nickname).getSingleResult());
+        } catch (Exception e) {
+            return Optional.empty();
+        }
     }
 
     @Override

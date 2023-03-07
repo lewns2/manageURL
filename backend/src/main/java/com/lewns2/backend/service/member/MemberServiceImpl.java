@@ -6,8 +6,10 @@ import com.lewns2.backend.rest.exception.badrequest.InvalidPasswordException;
 import com.lewns2.backend.rest.exception.notfound.MemberNotFoundException;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import javax.transaction.Transactional;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -49,8 +51,30 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     @Transactional
-    public Member findMemberByNickName(String nickname) {
-        return memberRepository.findMemberByNickName(nickname);
+    public Member findMemberByNickName(String nickName) {
+        // Optional
+        Member findMember = memberRepository.findMemberByNickName(nickName).orElseThrow(MemberNotFoundException::new);
+
+        return findMember;
+    }
+
+    @Override
+    public boolean isAvailableNickName(String nickName) {
+        Optional<Member> findMember = memberRepository.findMemberByNickName(nickName);
+        if(findMember.isPresent()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public boolean isAvailableEmail(String email) {
+        Optional<Member> findMember = memberRepository.findMemberByEmail(email);
+        if(findMember.isPresent()) {
+            return false;
+        }
+        return true;
     }
 
 }
