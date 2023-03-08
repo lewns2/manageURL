@@ -14,7 +14,6 @@ const CreateDescription = () => {
 
   return (
     <>
-      <Description.Label />
       <Description.TextArea onChange={(e) => onChangeDescription(e, setDescription)} />
     </>
   );
