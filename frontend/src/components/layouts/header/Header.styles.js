@@ -20,7 +20,6 @@ export const Menu = styled.li`
   fill: ${theme.colors.GRAY};
 
   &:focus,
-  $:hover,
   &:active {
   }
 

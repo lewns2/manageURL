@@ -1,4 +1,8 @@
-import { BoardCreateMenu } from '../../../../components/layouts/board';
+import {
+  BoardCreateMenu,
+  BoardCreateContainer,
+  UrlCreateMenuContainer,
+} from '../../../../components/layouts/board';
 import board from '../../board-api/board';
 import { useBoardCreateContext } from './hooks';
 import { CreateDescription, CreateTitle, CreateUrlList } from './parts';
@@ -8,15 +12,16 @@ const BoardCreateBaseForm = () => {
   const boardState = useBoardCreateContext();
 
   return (
-    <div>
+    <BoardCreateContainer>
       <form>
         <CreateTitle />
         <CreateDescription />
         <CreateUrlList />
       </form>
+
       <BoardCreateMenu>취소</BoardCreateMenu>
       <BoardCreateMenu onClick={() => summitBoardData(boardState)}> 작성</BoardCreateMenu>
-    </div>
+    </BoardCreateContainer>
   );
 };
 

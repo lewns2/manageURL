@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router';
-import UserSignUpBaseForm from './signup-form/UserSignUpBaseForm';
 
 import {
   LayoutWithHeader,
@@ -10,12 +9,32 @@ import {
   UserButtonContent,
 } from '../../../components/layouts';
 
+import { UserSignUpBaseForm } from './signup-form';
 import { useSignUpContext } from './hooks';
 import { userApi } from '../user-api';
 
 const SignUp = () => {
   const navigate = useNavigate();
   const userState = useSignUpContext();
+
+  // role: Form Data로 회원 가입 API 요청을 한다.
+  const summitFormData = async (userState) => {
+    const userId = await userApi.signUp(userState);
+    pageHandler(userId);
+  };
+
+  // role: 회원 가입 처리 여부에 따라 이동할 페이지를 결정한다.
+  const pageHandler = (userId) => {
+    if (userId !== null) {
+      alert('회원 가입이 성공적으로 처리되었습니다.');
+      moveToLogin();
+    }
+  };
+
+  // role: 로그인 페이지로 이동한다.
+  const moveToLogin = () => {
+    navigate('/login');
+  };
 
   return (
     <LayoutWithHeader>
@@ -33,14 +52,6 @@ const SignUp = () => {
       </UserContainer>
     </LayoutWithHeader>
   );
-};
-
-// role: 입력 데이터 값들의 유효성을 검증한다.
-
-// role: Form Data로 회원 가입 API 요청을 한다.
-const summitFormData = async (userState) => {
-  const userId = await userApi.signUp(userState);
-  console.log(userId);
 };
 
 export default SignUp;
