@@ -1,5 +1,6 @@
 package com.lewns2.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.CreatedDate;
@@ -24,7 +25,7 @@ public class Board extends DateEntity {
     private String description;
 
     @OneToMany(mappedBy = "board")
-    private Set<Url> urls;
+    private List<Url> urls;
 
     // JPA를 위한 기본 생성자
     public Board() {};
@@ -60,5 +61,13 @@ public class Board extends DateEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Url> getUrls() {
+        return urls;
+    }
+
+    public void setUrls(List<Url> urls) {
+        this.urls = urls;
     }
 }

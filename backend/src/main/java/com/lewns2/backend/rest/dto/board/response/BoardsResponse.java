@@ -19,6 +19,6 @@ public class BoardsResponse {
     }
 
     public static BoardsResponse from(Collection<Board> boards) {
-        return new BoardsResponse(boards.stream().map(BoardResponse::from).collect(Collectors.toList()));
+        return new BoardsResponse(boards.stream().map(BoardResponse::getBoardWithoutUrls).collect(Collectors.toList()));
     }
 }
