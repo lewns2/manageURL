@@ -1,6 +1,7 @@
 package com.lewns2.backend.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Table(name = "urls")
 public class Url extends DateEntity{
 
+    @JsonIgnore
     @ManyToOne
     Board board;
 

@@ -7,7 +7,8 @@ public enum ErrorCode {
     INVALID_PASSWORD_PARAM("400"),
 
     //
-    MEMBER_NOT_FOUND("404");
+    MEMBER_NOT_FOUND("404"),
+    BOARD_NOT_FOUND("404");
 
 
     private final String value;

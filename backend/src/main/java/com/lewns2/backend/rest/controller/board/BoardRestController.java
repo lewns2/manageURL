@@ -6,6 +6,7 @@ import com.lewns2.backend.model.Url;
 import com.lewns2.backend.rest.dto.board.response.BoardIdResponse;
 import com.lewns2.backend.rest.dto.board.request.CreateBoardRequest;
 import com.lewns2.backend.rest.dto.board.request.UpdateBoardRequest;
+import com.lewns2.backend.rest.dto.board.response.BoardResponse;
 import com.lewns2.backend.rest.dto.board.response.BoardsResponse;
 import com.lewns2.backend.service.board.BoardService;
 import com.lewns2.backend.service.member.MemberService;
@@ -55,7 +56,7 @@ public class BoardRestController {
 
     // 게시글 조회
     @GetMapping("/board/{nickName}")
-    public ResponseEntity<BoardsResponse> getBoard(@PathVariable String nickName) {
+    public ResponseEntity<BoardsResponse> getBoards(@PathVariable String nickName) {
         Member member = memberService.findMemberByNickName(nickName);
         Collection<Board> boardRes = boardService.findBoardByMemberId(member.getId());
 
@@ -89,5 +90,16 @@ public class BoardRestController {
 
         return new ResponseEntity<>(resId, HttpStatus.OK);
     }
+
+    // 단일 게시글 조회
+    @GetMapping("/board/{nickName}/{id}")
+    public ResponseEntity<BoardResponse> getBoard(@PathVariable("nickName") String nickName, @PathVariable("id") int id) {
+        Long boardId = Long.valueOf(id);
+        Board board = boardService.findBoardById(boardId);
+
+        return new ResponseEntity<>(BoardResponse.getBoardWithUrls(board), HttpStatus.OK);
+    }
+
+
 
 }

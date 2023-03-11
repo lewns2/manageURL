@@ -2,6 +2,7 @@ package com.lewns2.backend.service.board;
 
 import com.lewns2.backend.model.Board;
 import com.lewns2.backend.repository.BoardRepository;
+import com.lewns2.backend.rest.exception.notfound.BoardNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -26,7 +27,10 @@ public class BoardServiceImpl implements BoardService{
     @Override
     @Transactional
     public Board findBoardById(Long boardId) {
-        return boardRepository.findById(boardId);
+
+        Board board = boardRepository.findById(boardId).orElseThrow(BoardNotFoundException::new);
+
+        return board;
     }
 
     @Override
