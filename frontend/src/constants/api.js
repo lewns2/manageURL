@@ -13,8 +13,7 @@ export const HEADERS = {
 };
 
 export const ENDPOINTS = {
-  POST: `${BASE_URL}/board`,
-  POST_BY_ID: (id) => `${BASE_URL}/board/${id}`,
+  MY_POST_BY_ID: (nickName, id) => `${BASE_URL}/board/${nickName}/${id}`,
   MY_POSTS: (nickName) => `${BASE_URL}/board/${nickName}`,
 
   MY_URLS: (nickName) => `${BASE_URL}/urls/${nickName}`,

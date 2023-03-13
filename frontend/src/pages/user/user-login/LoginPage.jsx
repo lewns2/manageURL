@@ -7,8 +7,8 @@ import LoginBaseForm from './login-form/LoginBaseForm';
 import {
   LayoutWithHeader,
   UserContainer,
-  UserTitle,
   UserFormContent,
+  UserTitle,
   LoginMenu,
   UserButtonContent,
 } from '../../../components/layouts';
