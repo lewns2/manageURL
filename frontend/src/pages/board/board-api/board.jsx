@@ -40,6 +40,28 @@ const boardApi = {
     };
   },
 
+  /* 단일 게시글 조회 */
+  fetchPost: (nickName, boardId) => {
+    let resData = null;
+    const suspender = fetch(ENDPOINTS.MY_POST_BY_ID(nickName, boardId), {
+      method: METHOD.GET,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        resData = data;
+      });
+
+    return {
+      read() {
+        if (resData === null) {
+          throw suspender;
+        } else {
+          return resData;
+        }
+      },
+    };
+  },
+
   /* URL 모아보기 */
   fetchUrls: (nickName) => {
     let resData = null;

@@ -1,4 +1,4 @@
-import { CreateContainerStyle } from '../Board.styles';
+import { CreateContainerStyle } from './BoardCreate.styles';
 
 const BoardCreateContainer = ({ children }) => {
   return <CreateContainerStyle>{children}</CreateContainerStyle>;

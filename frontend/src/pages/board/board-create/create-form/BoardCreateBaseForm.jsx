@@ -1,8 +1,4 @@
-import {
-  BoardCreateMenu,
-  BoardCreateContainer,
-  UrlCreateMenuContainer,
-} from '../../../../components/layouts/board';
+import { BoardCreateMenu, BoardCreateContainer } from '../../../../components/layouts/board';
 import board from '../../board-api/board';
 import { useBoardCreateContext } from './hooks';
 import { CreateDescription, CreateTitle, CreateUrlList } from './parts';
