@@ -39,7 +39,6 @@ public class UrlRestController {
 
         Collection<Url> findUrls = urlService.findMemberUrls(boardRes);
 
-
         return new ResponseEntity<>(UrlsResponse.from(findUrls), HttpStatus.OK);
     }
 

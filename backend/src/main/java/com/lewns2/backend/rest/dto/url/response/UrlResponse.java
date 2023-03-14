@@ -7,6 +7,8 @@ import lombok.Getter;
 public class UrlResponse {
     private String address;
     private String category;
+    private Long boardId;
+    private String boardTitle;
 
     private UrlResponse() {};
 
@@ -15,7 +17,14 @@ public class UrlResponse {
         this.category = category;
     }
 
+    private UrlResponse(String address, String category, Long boardId, String boardTitle) {
+        this.address = address;
+        this.category = category;
+        this.boardId = boardId;
+        this.boardTitle = boardTitle;
+    }
+
     public static UrlResponse from(final Url url) {
-        return new UrlResponse(url.getAddress(), url.getCategory());
+        return new UrlResponse(url.getAddress(), url.getCategory(), url.getBoard().getId(), url.getBoard().getTitle());
     }
 }
