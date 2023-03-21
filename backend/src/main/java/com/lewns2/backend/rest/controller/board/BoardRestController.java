@@ -60,8 +60,9 @@ public class BoardRestController {
         Member member = memberService.findMemberByNickName(nickName);
         Collection<Board> boardRes = boardService.findBoardByMemberId(member.getId());
 
-        return new ResponseEntity<>(BoardsResponse.from(boardRes), HttpStatus.OK);
+        return new ResponseEntity<>(BoardsResponse.getBoarsGroupByDate(boardRes), HttpStatus.OK);
     }
+
 
     // 게시글 삭제
     @DeleteMapping("/board/{id}")
