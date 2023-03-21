@@ -27,7 +27,6 @@ public class BoardServiceImpl implements BoardService{
     @Override
     @Transactional
     public Board findBoardById(Long boardId) {
-
         Board board = boardRepository.findById(boardId).orElseThrow(BoardNotFoundException::new);
 
         return board;
