@@ -34,7 +34,7 @@ const boardApi = {
         if (resData === null) {
           throw suspender;
         } else {
-          return resData.boards;
+          return resData;
         }
       },
     };
