@@ -7,7 +7,7 @@ const BoardHomePage = () => {
         <h2>히스토리</h2>
         {/* TODO : 간단한 메모 작성하기*/}
         <div>
-          <textarea value="글을 작성하세요..."></textarea>
+          {/* <textarea value="글을 작성하세요..."></textarea> */}
           <div>
             <p>태그</p>
             <p>확대</p>
@@ -21,7 +21,7 @@ const BoardHomePage = () => {
         <div>작성된 태그</div>
 
         {/* TODO : 검색창 */}
-        <input value="search..."></input>
+        {/* <input value="search..."></input> */}
       </LayoutWithSideMenu>
     </div>
   );
