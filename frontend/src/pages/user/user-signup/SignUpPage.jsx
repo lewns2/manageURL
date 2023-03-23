@@ -17,8 +17,24 @@ const SignUp = () => {
   const navigate = useNavigate();
   const userState = useSignUpContext();
 
+  // role : 빈 입력칸이 있는 지 확인한다.
+  const checkEmptyFormData = () => {
+    const emailSplit = userState.email.split('@');
+    const emailLocal = emailSplit[0];
+    const emailDomain = emailSplit[1];
+
+    const res = userState.nickName && userState.password && emailLocal && emailDomain;
+    return res ? checkExistFormData() : alert('빈 입력값이 존재합니다.');
+  };
+
+  // role : 중복 확인 여부를 확인한다.
+  const checkExistFormData = () => {
+    const res = userState.check.nickName;
+    return res ? summitFormData() : alert('회원 가입을 위해 중복 확인이 필요합니다.');
+  };
+
   // role: Form Data로 회원 가입 API 요청을 한다.
-  const summitFormData = async (userState) => {
+  const summitFormData = async () => {
     const userId = await userApi.signUp(userState);
     pageHandler(userId);
   };
@@ -46,7 +62,7 @@ const SignUp = () => {
         </UserFormContent>
 
         <UserButtonContent>
-          <LoginMenu onClick={() => summitFormData(userState)}>회원 가입</LoginMenu>
+          <LoginMenu onClick={() => checkEmptyFormData()}>회원 가입 확인</LoginMenu>
           <LoginMenu onClick={() => navigate('/login')}>로그인하러가기</LoginMenu>
         </UserButtonContent>
       </UserContainer>
