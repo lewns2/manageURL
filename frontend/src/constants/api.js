@@ -20,4 +20,5 @@ export const ENDPOINTS = {
 
   SIGNUP: `${BASE_URL}/signup`,
   LOGIN: `${BASE_URL}/login`,
+  CHECK_NICKNAME: (nickName) => `${BASE_URL}/signup/nickname/check?nickname=${nickName}`,
 };

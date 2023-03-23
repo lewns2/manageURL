@@ -26,6 +26,17 @@ const userApi = {
 
     return resData;
   },
+
+  /* 닉네임 중복 확인 */
+  checkNickName: async (data) => {
+    const res = await fetch(ENDPOINTS.CHECK_NICKNAME(data), {
+      method: METHOD.GET,
+    });
+
+    const resData = await res.json();
+
+    return resData;
+  },
 };
 
 export default userApi;
