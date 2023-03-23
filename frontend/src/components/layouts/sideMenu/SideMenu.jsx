@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MenuWrapper, SideSection, Menu } from './SideMenu.styles';
-import { Content, SubTitle, Title } from '../../parts/font';
+import { Content, SubTitle } from '../../parts/font';
 import { useEffect, useState } from 'react';
 
 const PATH = {
@@ -12,10 +12,21 @@ const PATH = {
 
 const SideMenu = () => {
   const [watchedHistory, setWatchedHistory] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setWatchedHistory(JSON.parse(localStorage.getItem('watched')));
   }, []);
+
+  // role : 로그아웃
+  const logout = () => {
+    localStorage.removeItem('nickName');
+    goHome();
+  };
+
+  const goHome = () => {
+    navigate('/');
+  };
 
   return (
     <SideSection>
@@ -34,6 +45,7 @@ const SideMenu = () => {
         <SubMenu pathName="MYURLS"></SubMenu>
 
         <MainMenu title={`${localStorage.getItem('nickName')} 님`}></MainMenu>
+        <div onClick={() => logout()}>로그아웃</div>
       </MenuWrapper>
     </SideSection>
   );

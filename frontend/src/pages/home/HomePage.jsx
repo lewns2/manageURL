@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import {
   LayoutWithHeader,
@@ -7,8 +8,17 @@ import {
   HomeContentMenu,
 } from '../../components/layouts';
 
+import { isLogin } from '../../util';
+
 export default function Home() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const res = isLogin();
+    if (res) {
+      navigate('/board');
+    }
+  }, []);
 
   return (
     <LayoutWithHeader>

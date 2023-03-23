@@ -1,6 +1,18 @@
 import { LayoutWithSideMenu } from '../../../components/layouts/common';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { isLogin } from '../../../util';
 
 const BoardHomePage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const res = isLogin();
+    if (!res) {
+      navigate('/');
+    }
+  }, []);
+
   return (
     <div>
       <LayoutWithSideMenu>
